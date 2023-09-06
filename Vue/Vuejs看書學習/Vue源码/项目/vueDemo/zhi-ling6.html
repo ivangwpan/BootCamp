@@ -1,0 +1,45 @@
+<!-- 第一种 
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-text练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app" v-text="'今年是'+year+'年'+month+'月'"></div>
+	<script type="text/javascript">
+	var vm=new Vue({
+		el:'#app',
+		data:{
+		    year:new Date().getFullYear(),
+		    month:new Date().getMonth()+1
+		}
+	});
+	</script>	 
+	</body>
+</html> -->
+
+<!-- 第二种 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-text练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	            今年是{{year}}年{{month}}月
+	</div>
+	<script type="text/javascript">
+	var vm=new Vue({
+		el:'#app',
+		data:{
+		    year:new Date().getFullYear(),
+		    month:new Date().getMonth()+1
+		}
+	});
+	</script>	 
+	</body>
+</html>

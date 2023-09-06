@@ -1,0 +1,147 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> 动画钩子enter </title>
+  <script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+  
+</head>
+<body>
+<div id="app">
+    <transition name="fade" @before-enter="handleBeforeEnter" @enter="handleEnter">
+      <div v-show="show">
+        我爱吃水果
+      </div>
+    </transition>
+
+    <button @click="handleClick">点击我</button>
+  </div>
+  <script>
+   var vm = new Vue({
+     el: "#app",
+     data: {
+       show: true
+     },
+     methods: {
+       handleClick: function(){
+         this.show = ! this.show
+       },
+       handleBeforeEnter: function(el){
+         el.style.color = 'green'
+       },
+       handleEnter: function(el, done){
+         setTimeout(() => {
+           el.style.color = 'red'
+           done()
+         },2000)
+       }
+     }
+   })
+
+  </script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> 动画钩子before-enter </title>
+  <script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+  
+</head>
+<body>
+<div id="app">
+    <transition name="fade" @before-enter="handleBeforeEnter">
+      <div v-show="show">苹果是水果</div>
+    </transition>
+
+    <button @click="handleClick">点击我</button>
+  </div>
+  <script>
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      show: true
+    },
+    methods: {
+      handleClick: function(){
+        this.show = ! this.show
+      },
+      // 接收到一个参数 el  代指被包裹的标签 
+      handleBeforeEnter: function(el){
+        el.style.color = 'red'
+      }
+    }
+  })
+  </script>
+</body>
+</html>
+ -->
+ 
+ 
+ 
+ 
+ 
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <title> 动画钩子after--enter </title>
+   <script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+   
+ </head>
+ <body>
+ <div id="app">
+    <transition name="fade" 
+                @before-enter="handleBeforeEnter" 
+                @enter="handleEnter"
+                @after-enter="handleAfterEnter"
+      >
+      <div v-show="show">
+        hello world
+      </div>
+    </transition>
+
+    <button @click="handleClick">点击我</button>
+  </div>
+  
+  
+   <script>
+ var vm = new Vue({
+   el: "#app",
+   data: {
+     show: true
+   },
+   methods: {
+     handleClick: function(){
+       this.show = ! this.show
+     },
+     handleBeforeEnter: function(el){
+       el.style.color = 'red'
+     },
+     handleEnter: function(el, done){
+       setTimeout(() => {
+         // 2s 之后改变颜色
+         el.style.color = 'green'
+       },2000)
+ 
+       setTimeout(() => {
+         // 4s 之后 done()
+         done()
+       },4000)
+     },
+     handleAfterEnter: function(el){
+       el.style.color = "#000"
+     }
+   }
+ })
+   </script>
+ </body>
+ </html>
+ 
+ 
+ 

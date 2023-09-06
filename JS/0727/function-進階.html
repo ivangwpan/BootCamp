@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            border: 100px solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <!-- <img src="./img/背景.jpg" alt=""> -->
+    </div>
+    <button>AAAAABBBBBBCCCCCCCCCC</button>
+    <button clas="allBtn">
+aaaaaaaaaaaaaaaaaaaaa
+    </button>
+    <button clas="allBtn">
+bbbbbbbbbbbbbbbbbbb
+    </button>
+    <button clas="allBtn">
+cccccccccccccccccccccc
+    </button>
+    <script>
+        box = document.querySelector('.box')
+        
+        // myBorder(5,'dotted','red')
+        // function myBorder(width,style,color){
+        //     box.style.borderWidth = `${width}px`;
+        //     box.style.borderStyle = style;
+        //     box.style.backgroundColor = color;
+        // }
+
+        // show('我有了',555,'我沒了',666)
+        // function show(msg1,times1,msg2,times2) {
+        //     for (let i = 0; i < times1; i++) {
+        //         console.log(i,msg1);
+        //     }
+        //     for (let i = 0; i < times2; i++) {
+        //         console.log(i,msg2);
+        //     }
+        // }
+
+        // showimg('南投縣')
+        // function showimg(path){
+        //     let wx_img_map = `./img/${path}.jpg`;
+        //     box.src = wx_img_map;
+        // }
+
+        // const MotherBuy = ["Banana", "Orange", "Apple", "Mango"];
+        // const eat = ['milk','Apple']
+        // document.getElementById("box").innerHTML = MotherBuy.includes(eat)
+        // document.getElementById("box").innerHTML = MotherBuy.includes(eat)
+
+
+        // eat = 'Apple';
+        // if (MotherBuy.includes(eat)) {
+        //     alert('有');
+        // }
+
+        // let a = 1;
+        // if ([1,2,3].indexOf(a)>=0) {
+        //     alert('Ya')
+        // }
+        // else{
+        //     alert('No')
+        // }
+
+        let age = 20;
+
+        let getAnswer = isAdult(age);
+        console.log(getAnswer);
+        console.log(showStr());
+
+        // function Adult(age){
+        //     let ans  = false;
+        //     if (age >= 18) {
+        //         ans = true;
+        //     }
+        //     return ans;
+        // }
+        function isAdult(age){
+            return age >= 18;
+        }
+        function showStr(){
+            return '我棒棒';
+        }
+
+        // 函式需先宣告後才能使用
+        // ES6 箭頭函式
+        // showStr2();
+        const showStr2 = () => {
+            return '我超超棒';
+        }
+        console.log(showStr2());
+
+        arr1 = [100,200,300];
+        arr1.forEach(function(item,index){
+            console.log(index,item);
+        })
+
+        arr1.forEach(item => {
+            console.log(item);
+        })
+
+        arr1.forEach((item,index)=> {
+            console.log(index,item);
+        })
+
+        arr1.forEach(item => console.log(9999999999999,item));
+        arr1.forEach(x=>x+=10000);
+
+        btn = document.querySelector('button');
+        btn.addEventListener('click', function(){
+            console.log(100000);
+        })
+        btn.addEventListener('click',()=>console.log(99999999999));
+
+        btnAll = document.querySelectorAll('.allBtn');
+        btnAll.forEach((myBtn,index)=>{
+            myBtn.addEventListener('click',()=>nowCities = Cities[index])
+        })
+    </script>
+</body>
+</html>

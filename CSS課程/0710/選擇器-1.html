@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #my-id{
+            width: 100%;
+            height: 20px;
+            color: red;
+            display: inline;
+            background-color: yellow;
+        }
+        .my-id{
+            background-color: blue;
+            font-style: italic;
+        }
+        /* 後代選擇器，所有子層 */
+        .my-id .box-1{
+            color: blue;
+            background-color: pink;
+        }
+        /* 子代選擇器，所有子代，不含孫代 */
+        .my-id > .box-1{
+            color: purple;
+            background-color: green;
+        }
+        /* 兄弟選擇器，僅限節點右方 */
+        h1 + h2 {
+            color: red;
+            background-color: black;
+        }
+        /* 選擇所有的兄弟層 */
+        .my-id ~ div{
+            background-color: yellow;
+        }
+        /* 複合選擇器，選定所有路徑相同的子層 */
+        .my-id .box-1 .box-10{
+            background-color: purple;
+        }
+        input{
+            width: 300px;
+            height: 100px;
+            color: aqua;
+        }
+        input[type="text"]{
+            background-color: red;
+        }
+        input[type="number"]{
+            color: red;
+        }
+        /* input[name="gender"] */
+    </style>
+</head>
+<body>
+    age<input type="number" name="age">
+    <input type="text">
+    <input type="checkbox">
+    <!-- <div id="my-id">COOOOOOOOOOOOOOOOOOOOOOOOOOOL</div> -->
+    <!-- <div class="my-id">COOOOOAAAAAAAAAAAAAAAAAAOOOOL
+        <div class="box-1">DDDD
+            <div class="box-1">EEEE
+                <div class="box-1">FFFF
+                    <div class="box-11">BOXBOXBOXBOX</div>
+                    <div class="my-id box-1 box-10">BOXBOXBOXBOX</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>ASD</h1>
+    <h2>FGH</h2>
+    <div>飄飄</div>
+    <div>飄飄飄</div>
+    <div>飄飄飄飄飄</div>
+    <div>飄飄飄飄飄飄</div>
+    <div>飄飄飄飄飄飄飄飄</div> -->
+</body>
+</html>

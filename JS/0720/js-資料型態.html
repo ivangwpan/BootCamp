@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 資料型態
+        // number>數字，數值資料
+        // string>字串
+        // boolean>布林值
+        // undefined>無定義資料???
+
+        // 變數variable
+        // 變數>box、字面量>123
+        var box=123;
+        // 在引號內的數字為字串
+        var round='circle'
+        console.log(round)
+        round='BangBangBang'
+        console.log(round)
+
+        // 辨識資料型態
+        console.log(typeof(box));
+        console.log(typeof(round));
+        var f = 1;
+        var g = 'abcdef';
+        var h = true;
+        console.log(f,typeof(f));
+        console.log(g,typeof(g));
+        console.log(h,typeof(h), h + 54);
+        var i;
+        console.log(i,typeof(i));
+        var j = [1,2,3]; //陣列>object
+        console.log(j,typeof(j));
+        var k = {name:'Pan'};
+        console.log(k,typeof(k));
+        var m = console;
+        console.log(m,typeof(m));
+        var n = () => {};
+        console.log(n,typeof(n));
+        var p = null;
+        console.log(p,typeof(p));
+        var q = '';
+        console.log(q,typeof(q));
+    </script>
+</body>
+</html>

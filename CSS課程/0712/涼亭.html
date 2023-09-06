@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* background-color: black; */
+        }
+        .roof{
+            width: 500px;
+            height: 200px;
+            background-color: yellow;
+            position: relative;
+            left: calc(50% - 250px);
+        }
+        .top::before{
+            position: absolute;
+            content: "";
+            border-width: 100px;
+            border-style: solid;
+            border-right-color: yellow;
+            border-top-color: transparent;
+            border-bottom-color: yellow;
+            border-left-color: transparent;
+            left: -200px;
+        }
+        .top::after{
+            position: absolute;
+            content: "";
+            border-width: 100px;
+            border-style: solid;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            border-bottom-color: yellow;
+            border-left-color: yellow;
+            right: -200px;
+        }
+        .pillar{
+            width: 500px;
+            height: 400px;
+            background-color: transparent;
+            position: relative;
+            left: calc(50% - 250px);
+        }
+        .mid::before{
+            background-color: green;
+            height: 200px;
+            width: 100px;
+            content: "";
+            position: absolute;
+            border-width: 100px;
+            border-style: solid;
+            border-left-color: white;
+            border-right-color: white;
+            border-top-color: red;
+            border-bottom-color: red;
+            left: -100px;
+        }
+        .mid::after{
+            background-color: green;
+            height: 200px;
+            width: 100px;
+            content: "";
+            position: absolute;
+            border-width: 100px;
+            border-style: solid;
+            border-left-color: white;
+            border-right-color: white;
+            border-top-color: red;
+            border-bottom-color: red;
+            right: -100px;
+        }
+        .stair{
+            width: 700px;
+            height: 200px;
+            background-color: yellow;
+            position: relative;
+            left: calc(42.5% - 250px);
+
+        }
+        .btm::before{
+            position: absolute;
+            content: "";
+            border-width: 100px;
+            border-style: solid;
+            border-right-color: yellow;
+            border-top-color: transparent;
+            border-bottom-color: yellow;
+            border-left-color: transparent;
+            left: -200px;
+        }
+        .btm::after{
+            position: absolute;
+            content: "";
+            border-width: 100px;
+            border-style: solid;
+            border-right-color: transparent;
+            border-top-color: transparent;
+            border-bottom-color: yellow;
+            border-left-color: yellow;
+            right: -200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="roof top"></div>
+    <hr>
+    <div class="pillar mid"></div>
+    <hr>
+    <div class="stair btm"></div>
+</body>
+</html>

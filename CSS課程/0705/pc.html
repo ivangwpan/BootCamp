@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0px;
+            width: 1920px;
+            height: 1080px;
+            background-color: gray;
+            position: absolute;
+        }
+        #nav{
+            height: 100%;
+            float: left;
+            width: 366px;
+            background-color: gray;
+            position: sticky;
+            left: 0px;
+            z-index: 99;
+        }
+        #logo{
+            width: 150px;
+            height: 150px;
+            background-color: rgb(97, 86, 86);
+            position: absolute;
+            left: calc(50% - 75px);
+            top: calc(12.5% - 75px);
+            text-align: center;
+            line-height: 150px;
+            color: white;
+            font-size: 28px;
+            margin-bottom: 100px;
+            background-image: url(./img/banner.jpg);
+            background-size: cover;
+        }
+        #nav-btn-all{
+            width: 125px;
+            height: 100px;
+            position: absolute;
+            left: calc(50% - 62.5px);
+            top: calc(30% - 60px);
+            text-align: center;
+            line-height: 100%;
+            
+        }
+        .nav-btn{
+            width: 125px;
+            height: 33%;
+            background-color: transparent;
+            color: rgb(194, 177, 177);
+        }
+
+        .nav-btn:hover{
+            transform: scale(1.5);
+            color: red;
+            text-decoration: none;
+        }
+        .nav-btn:active{
+            transform: scale(2.5);
+            color: transparent;
+            text-decoration: none;
+        }
+        .nav-btn:visited{
+            transform: scale(0.75);
+            color: blue;
+            text-decoration: none;
+        }
+        #container{
+            height: 100%;
+            width: calc(100% - 366px);
+            background-color: white;
+            /* left: 366px;
+            position: absolute; */
+            float: right;
+        }
+        #content{
+            width: 957px;
+            height: 570px;
+            background-color: black;
+            /* padding: 255px; */
+            /* margin: auto; */
+            top: 246px;
+            left: 298.5px;
+            position: relative;
+        }
+        .content-img{
+            width: 319px;
+            height: 570px;
+            background-color: gray;
+            float: left;
+            text-align: center;
+            line-height: 570px;
+            border: 2px white solid;
+        }
+        .content-img:hover{
+            transform: scale(1.25) rotate(45deg);
+            /* width: 100px;
+            height: 100px; */
+            background-image: url(./img/pexels-irina-iriser-1366957.jpg);
+            background-size: cover;
+        }
+        #img-1{
+            background-color: rgb(194, 181, 181);
+            background-image: url(./img/club1.png);
+            background-size: contain;
+        }
+        #img-1:hover{
+            background-image: url(./img/checked.jpg);
+        }
+        #img-1:active{
+            opacity: 0;
+        }
+        #img-2{
+            background-color: rgb(194, 181, 181);
+            background-image: url(./img/club2.jpg);
+            background-size: contain;
+        }
+        #img-3{
+            background-color: rgb(194, 181, 181);
+            background-image: url(./img/club3.png);
+            background-size: contain;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="logo">Logo</div>
+        <div id="nav-btn-all">
+            <a href="https://www.google.com/search?client=opera&q=梅花&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank"><div id="nav-btn-1" class="nav-btn">AAAA</div></a>
+            <a href="https://www.google.com/search?q=會員卡&client=opera&hs=gWh&sxsrf=AB5stBjfH5Rv8MaZVSET5BlhQE2EqX4PAQ%3A1688546006596&ei=1iqlZP7xI86V-AaR4ZfYCw&ved=0ahUKEwj-tKOHlPf_AhXOCt4KHZHwBbsQ4dUDCA4&uact=5&oq=會員卡&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6CwguEIAEELEDEIMBOhkILhCABBCxAxCDARCXBRDcBBDeBBDgBBgBOgsIABCABBCxAxCDAToICAAQgAQQsQM6CwguEIAEEMcBEK8BOggILhCABBCxAzoFCAAQogRKBAhBGABQAFiLE2DxFGgDcAF4AIABoAGIAacKkgEDOC42mAEAoAEBwAEB2gEGCAEQARgU&sclient=gws-wiz-serp" target="_blank"><div id="nav-btn-2" class="nav-btn">BBBB</div></a>
+            <a href="https://www.google.com/search?q=disco球&client=opera&hs=OC2&sxsrf=AB5stBhTYSMFCmbPwZFhtHdNP_zkDrA0Wg%3A1688546031883&ei=7yqlZI_ANYnmhwPp9bKICg&ved=0ahUKEwjP86qTlPf_AhUJ82EKHem6DKEQ4dUDCA4&uact=5&oq=disco球&gs_lcp=Cgxnd3Mtd2l6LXNlcnAQAzIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQ6CggAEEcQ1gQQsAM6CAgAEIAEELEDOgsILhCABBDHARCvAToHCCMQ6gIQJzoHCCMQigUQJzoECCMQJzoLCAAQgAQQsQMQgwE6EQguEIAEELEDEIMBEMcBENEDOgcIABCKBRBDOg0IABCKBRCxAxCDARBDOgoILhCKBRCxAxBDOgoIABCKBRCxAxBDOgUIABCiBEoECEEYAFCmBlimHWDeJWgDcAF4AIABbYgB7gaSAQM3LjOYAQCgAQGwAQrAAQHIAQo&sclient=gws-wiz-serp" target="_blank"><div id="nav-btn-3" class="nav-btn">CCCC</div></a>
+        </div>
+    </div>
+    <div id="container">
+        <div id="content">
+            <div id="img-1" class="content-img">X</div>
+            <div id="img-2" class="content-img">Y</div>
+            <div id="img-3" class="content-img">Z</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>父组件</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<template>
+	    <div class="app">
+	        <child @func="getMsgFormSon"></child>
+	    </div>
+	</template>
+	<script>
+	 import child from './zi-zu-jian.html'
+	 export default {
+	     data () {
+	         return {
+	             msgFormSon: "this is msg"
+	         }
+	     },
+	     components:{
+	         child,
+	     },
+	     methods:{
+	             getMsgFormSon(data){
+	                 this.msgFormSon = data
+	                 console.log(this.msgFormSon)
+	             }
+	     }
+	 }
+	</script>
+	</body>
+</html>

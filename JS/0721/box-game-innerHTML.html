@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #F06060;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+        }
+        .box-big{
+            width: 520px;
+            height: 520px;
+            margin: auto;
+            background-color: #d3d3d3;
+            display: flex;
+            padding: 10px;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+        .box{
+            width: 50%;
+            height: 50%;
+            background-color: yellow;
+            border: 5px solid #d3d3d3;
+            border-radius: 10px;
+        }
+        .answer{
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-big">AAA
+        <div class="box">BBB</div>
+        <div class="box">CCC</div>
+        <div class="box">DDD</div>
+        <div class="box answer">EEE</div>
+    </div>
+    <script>
+        let boxbig = document.querySelector('.box-big');
+        // let answer=document.querySelector('.answer')
+        // answer.addEventListener('click',function(){
+        //     alert('恭喜過關')
+        // })
+
+    </script>
+</body>
+</html>

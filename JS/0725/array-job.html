@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    姓名<input type="text">
+    <button class="add">新增</button>
+    <button class="query">查詢</button>
+    <button class="delete">刪除</button>
+    <div>結果：<span class="result">查不到</span></div>
+    <div class="all">全部資料：</div>
+    <!-- 一一一一 -->
+
+    <script>
+        const data = [];
+
+        const nameInput = document.querySelector('input[type="text"]');
+        const resultSpan = document.querySelector('.result');
+        const allDataDiv = document.querySelector('.all');
+
+
+        function addName() {
+            allDataDiv.innerHTML= '';
+            const name = nameInput.value.trim(); 
+            if (name !== '') {
+                data.push(name);
+                nameInput.value = '';
+                resultSpan.textContent = '新增成功';
+                data.forEach(myFun);
+                function myFun(item, index){
+                    allDataDiv.innerHTML += `${item} <br>`;
+                }
+            }
+            
+        }
+
+
+        function queryName() {
+            const name = nameInput.value.trim();
+            if (name !== '') {
+                const index = data.indexOf(name);
+                if (index !== -1) {
+                    resultSpan.textContent = `找到了，位於索引 ${index+1}。`;
+                } else {
+                    resultSpan.textContent = '查不到';
+                }
+            }
+        }
+
+
+        function deleteName() {
+            const name = nameInput.value.trim();
+            if (name !== '') {
+                const index = data.indexOf(name);
+                if (index !== -1) {
+                    data.splice(index, 1);
+                    nameInput.value = ''; 
+                    resultSpan.textContent = '刪除成功'; 
+                } else {
+                    resultSpan.textContent = '查不到該項目，刪除失敗';
+                }
+            }
+        }
+
+
+        function displayAllData() {
+            allDataDiv.textContent = `全部資料：${data.join(', ')}`;
+        }
+
+
+        document.querySelector('.add').addEventListener('click', addName);
+        document.querySelector('.query').addEventListener('click', queryName);
+        document.querySelector('.delete').addEventListener('click', deleteName);
+
+        displayAllData();
+    </script>
+</body>
+
+</html>

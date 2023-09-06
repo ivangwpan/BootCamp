@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 500px;
+            height: 500px;
+            background-color: beige;
+            border-bottom: 5px solid;
+        }
+
+        .box:first-letter {
+            font-size: 80px;
+            color: yellowgreen;
+        }
+
+        .box::first-line {
+            color: red;
+        }
+
+        input:checked+label {
+            color: blue;
+        }
+
+        input[type="checkbox"]:checked {
+            box-shadow: 2px 2px 1px 0px black;
+        }
+
+        option:checked {
+            background-color: greenyellow;
+            color: red;
+        }
+
+        div:not(#not-box) {
+            background-color: yellow;
+        }
+
+        div:is(#not-box) {
+            background-color: red;
+        }
+
+        #not-box {
+            border-radius: 50%;
+        }
+
+        label {
+            display: block;
+            margin-top: 1em;
+        }
+
+        input:focus {
+            background-color: lightblue;
+        }
+
+        select:focus {
+            background-color: green;
+        }
+        html body :focus{
+            background-color: yellow;
+            font-size: 50px;
+            transform: scale(2.5);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- pseudo-偽類 -->
+    <div class="box">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo minus eum adipisci, nesciunt ut
+        ratione. Voluptate inventore perferendis iure error in, et cum quisquam, natus tempore, exercitationem at fugit
+        explicabo!
+        Consequuntur nostrum unde, doloremque blanditiis quos delectus officiis molestias, ea totam laboriosam ipsa
+        ipsum sequi quisquam recusandae consectetur excepturi molestiae eos, reiciendis amet! Ipsum quos similique vel
+        facere accusamus ea!</div>
+    <div class="box">
+        吃嗎?
+        <hr>
+        <input type="radio" name="yes_no" id="yes">
+        <label for="yes_no">Yes</label>
+        <input type="radio" name="yes_no" id="no">
+        <label for="yes_no">No</label>
+    </div>
+    <div class="box">
+        牛?豬?
+        <hr>
+        <input type="checkbox" name="beef" id="beef">
+        <label for="beef">牛肉</label>
+        <input type="checkbox" name="pork" id="pork">
+        <label for="pork">豬肉</label>
+    </div>
+    <div class="box">
+        <select name="" id="">
+            <option value="">鐵板燒</option>
+            <option value="">牛排</option>
+            <option value="">義大利麵</option>
+            <option value="">燒肉</option>
+        </select>
+    </div>
+    <div class="box"></div>
+    <div id="not-box" class="box"></div>
+    <form>
+        <p>Which flavor would you like to order?</p>
+        <label>Full Name: <input name="firstName" type="text"></label>
+        <label>Flavor:
+            <select name="flavor">
+                <option>Cherry</option>
+                <option>Green Tea</option>
+                <option>Moose Tracks</option>
+                <option>Mint Chip</option>
+            </select>
+        </label>
+    </form>
+
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="result"></div>
+    <script>
+        // 兩科以上及格就可以升級
+        // var result = document.querySelector('.result');
+        // let result = document.querySelector('.result');
+        const result = document.querySelector('.result');
+
+        let ch = 90;
+        let en = 80;
+        let math = 100;
+        let pass = '';
+
+        if (ch >= 60 && en >= 60 ) {
+            pass = true;
+        }
+        else if (ch >= 60 && math >= 60) {
+            pass = true
+        }
+        else if (en >= 60 && math >= 60) {
+            pass = true
+        }
+        else{
+            pass = false
+        }
+        console.log(pass);
+    </script>
+</body>
+</html>

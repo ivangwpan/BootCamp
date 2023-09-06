@@ -1,0 +1,178 @@
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+* {
+  list-style: none;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  height: 54px;
+  background-color: yellow;
+  display: flex;
+}
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+header nav #pc-menu {
+  width: 60%;
+}
+header nav #pc-menu ul {
+  display: flex;
+}
+header nav #func-menu {
+  flex: 1;
+  background-color: red;
+  display: flex;
+  align-items: center;
+}
+header nav #func-menu li {
+  display: flex;
+}
+header nav #func-menu li div {
+  flex: 1;
+}
+
+main {
+  width: 100%;
+  background-color: white;
+}
+main .swiper {
+  width: 100%;
+  height: 100%;
+}
+main .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+main .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 600px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+main .three-choice {
+  width: 100%;
+  height: 104px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+main .three-choice .choice {
+  width: 169.11px;
+  display: flex;
+}
+main .three-choice .choice a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+main .three-choice .choice a img {
+  width: 40px;
+  height: 40px;
+}
+main .four-card-all {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  justify-content: center;
+  height: 384.91px;
+  margin: auto;
+}
+main .four-card-all .four-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 5%;
+}
+main .four-card-all .four-card .cards {
+  width: 25%;
+  margin: auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+main .middle-banner {
+  display: flex;
+}
+main .middle-banner img {
+  margin: auto;
+  width: 90%;
+  max-width: 1600px;
+}
+main .suscribe-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+main .back-to-top {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: flex-end;
+}
+main .back-to-top .to-top-button {
+  width: 150px;
+  height: 100%;
+}
+
+footer {
+  width: 100%;
+  height: 800px;
+  background-color: white;
+}
+footer .footer-menu {
+  display: flex;
+  background-color: yellow;
+  height: 300px;
+  justify-content: flex-start;
+}
+footer .footer-menu ul {
+  margin: auto;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+}
+footer .footer-info {
+  background-color: red;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+footer .footer-info .left ul {
+  display: flex;
+}
+footer .footer-info .left ul li {
+  margin-right: 100px;
+}
+footer .footer-info .right ul {
+  margin-right: 30px;
+  display: flex;
+}
+footer .footer-info .right ul li {
+  margin-left: 50px;
+}/*# sourceMappingURL=正在微軟重作.css.map */

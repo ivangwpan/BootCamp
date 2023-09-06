@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>event</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	  <p>{{ num }}</p>
+	  <button @click="increase1"> add </button>
+	</div>
+	<button onclick="reduce2()"> 减少2</button> 
+	<button onclick="offReduce()">非还原</button>
+	<script>
+	   var vm = new Vue({
+	     el:"#app",
+	     data:{
+	      num:10
+	   },
+	     methods:{
+	   increase1:function () {
+	   this.num ++; 
+	   }
+	   }
+	   });
+	   // .$on定义事件 .$once定义只触发一次的事件
+	   vm.$on("reduce",function (diff) {
+	   vm.num -= diff ;
+	   });
+	   // .$emit触发事件
+	   function reduce2() {
+	   vm.$emit("reduce", 2);
+	   }
+	   function offReduce() {
+	   vm.$off("reduce");
+	   } 
+	</script>
+	</body>
+</html>

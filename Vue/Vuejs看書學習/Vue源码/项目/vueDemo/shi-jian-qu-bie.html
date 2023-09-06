@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<input v-model="message" placeholder="edit">
+		<p>Message is: {{ message }}</p>
+	</div>
+	<script type="text/javascript">
+	
+	 Child  = Vue.extend({
+	  teplate:'#app', //不同的是，el和data选项需要通过函数返回值赋值，避免多个组件实例共用一个数据。
+	  data:function(){
+	  return {
+  	...
+ 	}
+	 }
+	    })
+	    Vue.component('app',app)  //全局注册子组件
+	    <child ...></child>  //子组件在其他组件内的调用方式
+	</script>	 
+	</body>
+</html>
+
+
+
+
+

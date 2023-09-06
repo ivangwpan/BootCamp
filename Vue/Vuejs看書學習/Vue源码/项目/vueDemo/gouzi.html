@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>钩子函数练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+	<div id="app">
+	    <input type="text" id="text" v-focus><!--自定义全局指令后可在标签内直接使用这个指令-->
+	</div>
+	<script>
+	    //注册一个全局自定义指令
+	    Vue.directive('focus', {
+	        //每当指令绑定到元素上时，会立即执行这个bind函数，只执行一次
+	        bind: function () {
+	
+	        },
+	        //inserted表示元素插入到DOM中时，会执行inserted函数，只触发一次，el表示被绑定的那个原生js对象
+	        inserted: function (el) {
+	            el.focus()
+	        },
+	        //当VNode更新时会执行updated，可能触发多次
+	        updated:function(){
+	
+	        }
+	    })
+	
+	    var vm = new Vue({
+	        el: '#app',
+	        data: { 
+				
+			}
+	    })
+	</script>
+	</body>
+</html>
+
+

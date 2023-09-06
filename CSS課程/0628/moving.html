@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ocument</title>
+    <style>
+        .box-100 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            animation: example 1s infinite;
+
+        }
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0px;
+            }
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                background-color: green;
+                left: 0px;
+                top: 200px;
+            }
+
+            100% {
+                background-color: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .box-green {
+            background-color: rgb(43, 190, 43);
+        }
+
+        .box-red {
+            background-color: rgb(223, 52, 52);
+        }
+
+        .box-yellow {
+            background-color: rgb(236, 236, 37);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- /* ctrl+d可以快速選取同類別 */ -->
+    <div class="box-green box-100 "></div>
+    <div class="box-yellow box-100 "></div>
+    <div class="box-red box-100 "></div>
+
+    <!-- 同時產生id&calss=>#box-.box-red -->
+    <div class="box-100 box-green"></div>
+    <div class="box-100 box-green"></div>
+    <div class="box-100 box-green"></div>
+    <div class="box-100 box-green"></div>
+    <div class="box-100 box-green"></div>
+
+    <div class="box-100 box-red"></div>
+    <div class="box-100 box-green"></div>
+    <div class="box-100 box-green"></div>
+
+    <div class="box-100 box-red"></div>
+    <div class="box-100 box-green"></div>
+    <div class="box-100 box-red"></div>
+    <div class="box-100 box-green"></div>
+</body>
+
+</html>

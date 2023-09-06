@@ -1,0 +1,43 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}</div>
+
+<script>
+    const { createApp } = Vue
+
+    createApp({
+        data() {
+            return {
+                message: 'Hello Vue!'
+            }
+        },
+        beforeCreate() {
+            // called before data observation and initiallized
+        },
+        created() {
+            // after finish above
+            // $el not show up yet
+        },
+        beforeMount() {
+            // before function render(), like translate
+        },
+        mounted() {
+            // el be replaced then print html
+        },
+        beforeUpdate() {
+            // before refresh or  data update
+        },
+        updated() {
+            // DOM have been called, should avoid changing data
+        },
+        beforeDestroy() {
+            // anything can be use before destroyed
+        },
+        destroyed() {
+            // everything will be destroyed. this function won't be called when server are painting!!
+        },
+
+
+        // first download the page will triger four functions: beforeCreate()、created()、beforeMounted()、mounted()
+    }).mount('#app')
+</script>

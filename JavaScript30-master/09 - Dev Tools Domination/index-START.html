@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Console Tricks!</title>
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+
+  <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+  <script>
+    const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+
+    console.log(123, 456);
+    // Interpolated
+
+    console.log("my name is %s!!!", "Pan");
+    console.log("my have %f dollar!!!", 500.555555);
+    console.log("my have %d dollar!!!", 500.555555);
+    // Styled
+
+    console.log("%c住手", " font-size:60px ; color:red ; ");
+    // warning!
+
+    console.warn("Warning")
+    // Error :|
+
+    console.error("errorrrrrrrrrrrrrr")
+    // Info
+
+    console.info("infoooooooooooo")
+    // Testing
+    const p = document.querySelector('p');
+
+    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+    // clearing
+
+    console.clear();
+    // Viewing DOM Elements
+
+
+    console.log(p);
+    console.dir(p);
+    // Grouping together
+
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+    // counting
+
+
+    console.count('Pan');
+    console.count('Pan');
+    console.count('Pain');
+    console.count('Pain');
+    console.count('Pan');
+    console.count('Pain');
+    console.count('Pan');
+    console.count('Pain');
+    console.count('Pain');
+    console.count('Pain');
+    console.count('Pain');
+    console.count('Pain');
+    console.table(dogs);
+    // timing
+
+    console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+  </script>
+</body>
+
+</html>

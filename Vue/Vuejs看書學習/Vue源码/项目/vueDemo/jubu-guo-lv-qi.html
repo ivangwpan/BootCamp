@@ -1,0 +1,116 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>局部过滤器练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript">
+	let App = {
+	  template: 
+	    `<div>
+	      <input type="text" v-model="myText"/>
+	      {{ myText | myvue}}
+	    </div>`,
+	  data() {
+	    return {
+	      myText: '',
+	    };
+	  },
+	  filters: {
+	    myvue: function(val) {
+	      return '我是不会变化的';
+	    }
+	  }
+	}
+	
+	new Vue({
+	  el: document.getElementById('app'),
+	  components: {'app': App},
+	  template: `<app />`,
+	});
+	</script>	 
+	</body>
+</html> -->
+
+
+<!-- 一个参数 -->
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>局部过滤器练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript">
+	let App = {
+	  template: 
+	    `<div>
+	      <input type="text" v-model="myText"/>
+	      {{ myText | myvue}}
+	    </div>`,
+	  data() {
+	    return {
+	      myText: 'abc',
+	    };
+	  },
+	  filters: {
+		  myfun: function(val) {
+		    console.log(val);
+		    return val.split('').reverse().join('');
+		  },
+		
+	  }
+	}
+	new Vue({
+	  el: document.getElementById('app'),
+	  components: {'app': App},
+	  template: `<app />`,
+	});
+	</script>	 
+	</body>
+</html> -->
+
+
+<!-- 多个参数的情况 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>局部过滤器练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app"></div>
+	<script type="text/javascript">
+	let App = {
+	  template: 
+	    `<div>
+	      <input type="text" v-model="myText"/>
+	      {{ myText | myvue('abc', 'def')}}
+	    </div>`,
+	  data() {
+	    return {
+	      myText: '',
+	    };
+	  },
+	  filters: {
+	    myvue: function(val, val2, val3) {
+	      console.log(val);
+	      return val2 + val3 + ': ' + val.split('').reverse().join('');
+	    }
+	  }
+	}
+	new Vue({
+	  el: document.getElementById('app'),
+	  components: {'app': App},
+	  template: `<app />`,
+	});
+	</script>	 
+	</body>
+</html>
+

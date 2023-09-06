@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f06060;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+
+        }
+
+        .box-big {
+            width: 520px;
+            height: 520px;
+            background-color: #d3d3d3;
+            margin: auto;
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            border-radius: 10px;
+        }
+
+        .box {
+            width: 250px;
+            height: 250px;
+            background-color: aqua;
+            border: 5px solid #d3d3d3;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box-big">
+        <!-- <div class="box">BBB</div>
+        <div class="box">CCC</div>
+        <div class="box">DDD</div>
+        <div class="box answer">EEE</div> -->
+    </div>
+    <script>
+        // 解析遊戲
+        // 1.大盒子
+        // 2.長小盒子 2=>2*2個 3=>3*3個...
+        // 3.隨機給顏色
+        // 4.隨機給答案盒
+        // 5.過關
+        // 6.繼續遊戲
+        let level = 2;
+        const boxBig = document.querySelector('.box-big');
+
+        let r = Math.floor(Math.random() * 255 + 1);
+        let g = Math.floor(Math.random() * 255 + 1);
+        let b = Math.floor(Math.random() * 255 + 1);
+        let color = `rgb(${r},${g},${b})`;
+
+        for (let i = 0; i < level * level; i++) {
+            boxBig.innerHTML = boxBig.innerHTML + <div class="box"  style="background-color: ${color};"></div>
+        }
+        // 產生 1 ~ level**2(包含) 之間的數字 level**3 次方表示法 level 的 3次方
+        let randomAnswer = Math.floor(Math.random() * level ** 2 + 1);
+        // 塞答案盒的簡便方法 => nth:of-type
+        let answer = document.querySelector(`.box:nth-of-type(${randomAnswer})`);
+
+        answer.classList.add('answer')
+        // 增加監聽事件
+        answer.addEventListener('click', function () {
+            alert('恭喜過關');
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>radio练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<input type="radio" id="flash" value="flash" v-model="Line">
+		<label for="flash">飞机</label>
+		<br>
+		<input type="radio" id="bus" value="bus" v-model="Line">
+		<label for="bus">高铁</label>
+		<br>
+		<span>Picked:{{Line}}</span>
+	</div>
+	<script type="text/javascript">
+	var vm=new Vue({
+		el:'#app',
+		data:{
+			Line:'快起来'
+		}
+	});
+	</script>	 
+	</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>内联数组练习</title>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+<div id="app" v-bind:style="[baseStyles, vueStyles]">海草！海草！！！</div>
+<script type="text/javascript">
+var vm=new Vue({
+el:'#app',
+data:{
+    baseStyles:{color:'red'},
+    vueStyles:{'font-size':'10px'}
+});
+</script>
+</body>
+</html>
+

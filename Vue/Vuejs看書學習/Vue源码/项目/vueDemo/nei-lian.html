@@ -1,0 +1,88 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内联语句</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<button v-on:click = "say">SayHello</button>
+	</div>
+	<script type="text/javascript">
+	var vm = new Vue({
+	el: "#app",
+	data: {
+	msg:"hello Vue"
+	},
+	        methods:{
+	            say:function(){
+	                alert(this.msg);
+	            }
+	        }
+	    });
+	</script>	 
+	</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内联语句的方法methods</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<button v-on:click = "sayFrom(' vary good')">SayHello</button>
+	</div>
+	<script type="text/javascript">
+	  var vm = new Vue({
+	    el: "#app",
+	    data: {
+	        msg:"Hello Vue "
+	    },
+	    methods:{
+	        sayFrom:function(from){
+	            alert(this.msg +  'is' + from);
+	        }
+	    }
+	  });
+	</script>	 
+	</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>内联语句的$event</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<button v-on:click = "showEvent">Event</button>
+		<button v-on:click = "showEvent($event)">event</button>
+		<button v-on:click = "showEvent()">Say</button>  //这样写获取不到event
+	</div>
+	<script type="text/javascript">
+	  var vm = new Vue({
+	      el: "#app",
+	      methods:{
+	          showEvent:function(event){
+	              console.log(event);
+	          }
+	      }
+	  });
+	</script>	 
+	</body>
+</html>
+
+   
+    
+    
+
+
+
+
+

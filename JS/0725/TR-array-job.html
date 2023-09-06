@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    姓名<input type="text">
+    <button class="add">
+        新增
+    </button>
+    <button class="query">
+        查詢
+    </button>
+    <button class="delete">
+        刪除
+    </button>
+    <div>結果：<span class="result">查不到</span></div>
+    <div class="all">全部資料：</div>
+
+    <script>
+        let nameTMP = document.querySelector('input');
+        let addBTN = document.querySelector('.add');
+        let queryBTN = document.querySelector('.query');
+        let deleteBTN = document.querySelector('.delete');
+        let result = document.querySelector('.result');
+        let all = document.querySelector('.all');
+        let dataAll = [];
+        addBTN.addEventListener('click', function () {
+            dataAll.push(nameTMP.value);
+            showAll();
+        });
+        queryBTN.addEventListener('click', function () {
+            let myIndex = dataAll.indexOf(nameTMP.value);
+            if (myIndex == -1) {
+                result.innerHTML = `找不到`
+            } else {
+                result.innerHTML = `找到ㄖ，在第 ${myIndex + 1} 筆`
+            }
+        });
+        deleteBTN.addEventListener('click', function () {
+            let myIndex = dataAll.indexOf(nameTMP.value);
+            if (myIndex == -1) {
+                result.innerHTML = `找不到！`;
+            } else {
+                dataAll.splice(myIndex, 1);
+                showAll();
+            }
+        });
+
+        function showAll() {
+            all.innerHTML = '';
+            dataAll.forEach(function (item, index) {
+                all.innerHTML += `第 ${index + 1} 筆: ${item} <br>`;
+            });
+        }
+    </script>
+</body>
+
+</html>

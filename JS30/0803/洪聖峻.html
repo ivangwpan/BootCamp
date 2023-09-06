@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="w-50 min-vh-100 mx-auto d-flex flex-column  align-items-center justify-content-center">
+        <div class="list-group w-100">
+            <div href="#" class="list-group-item list-group-item-action" aria-current="true">尚未有代辦事項...</div>
+        </div>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="請輸入代辦事項" aria-label="Recipient's username"
+                aria-describedby="button-addon2">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">新增</button>
+            <button class="clearbtn">清除</button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script>
+        const listGroup = document.querySelector('.list-group');
+        const input = document.querySelector('input.form-control');
+        const btn = document.querySelector('button.btn.btn-outline-secondary');
+        const storage = sessionStorage.getItem('checkList');
+        const clearbtn = document.querySelector('.clearbtn')
+        // console.log(JSON.parse(storage));
+        let list = [];
+        if (storage) {
+            list = JSON.parse(storage);
+            renderList();
+        }
+
+
+        btn.addEventListener('click', () => {
+            const value = input.value;
+            // 關卡控制
+            if (value.trim() === '') return;
+            // 儲存過往輸入資料
+            list.push({
+                id: list.length + 1,
+                // 代辦事項名稱
+                name: value,
+                // 0:未執行,1:已執行
+                isDone: 0,
+            });
+
+            renderList();
+            console.log(list);
+
+            input.value = '';
+            // 存進sessionStorage
+            sessionStorage.setItem('checkList', JSON.stringify(list))
+        });
+
+        clearbtn.addEventListener('click', () => {
+            // 過濾出未完成的待辦事項
+            list = list.filter((item) => item.isDone === 0);
+
+            for (let i = 0; i < list.length; i++) {
+                list[i].id = i+1;
+            }
+            renderList();
+            // 存進sessionStorage
+            sessionStorage.setItem('checkList', JSON.stringify(list));
+        });
+
+
+        // event包住全部清單的元素 :事項要變藍色isDone要改為1              
+        listGroup.addEventListener('click', (event) => {
+            const listElement = event.target;
+            // console.dir(listElement);
+            // item.id 是個數字 而 listElement.dataset.id是個字串  find()幫我找到我想要資料
+            const clickedData = list.find((item) => {
+                // console.log(item.id, listElement.dataset.id);
+                return item.id == listElement.dataset.id;
+            });
+            // console.log(clickedData);
+            if (clickedData.isDone == 0) {
+                clickedData.isDone = 1;
+                listElement.classList.add('active');
+            } else {
+                clickedData.isDone = 0;
+                listElement.classList.remove('active');
+                renderList();
+            }
+            // 這邊意思比較不直觀  list是父值 而我用是find是所有的陣列的值可以回傳   
+            // 而clickedData是兒子意思我去儲存老巴給我的值去修改而我修改了會再回傳給list老爸
+            // 簡單來說就是list是大池塘而clickedData是從裡面取值出來去修改然後還要回歸大池塘意思~~~~~
+
+            // const clickedData = list.find((item) => {
+            //     console.log(item.id, listElement.dataset.id);
+            //     return item.id == listElement.dataset.id;
+            // });
+            // clickedData.isDone = 1;
+
+            // console.log(list);
+            // console.log(clickedData);
+            // 存進sessionStorage
+            sessionStorage.setItem('checkList', JSON.stringify(list))
+        });
+
+        function renderList() {
+            // 清空清單  
+            listGroup.innerHTML = '';
+            // 把所有過往資料渲染到畫面
+            list.forEach((item) => {
+                if (item.isDone == 0) {
+                    listGroup.innerHTML += `<div href="#" class="list-group-item list-group-item-action" 
+                aria-current="true" data-id="${item.id}">${item.name}</div>`;
+                } else {
+                    listGroup.innerHTML += `<div href="#" class="list-group-item list-group-item-action
+                    active" aria-current="true" data-id="${item.id}">${item.name}</div>`;
+                }
+            });
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <!-- 表單元素 -->
+        姓名:<input type="text" value="AAA">
+        <!-- 換行 -->
+        <br>
+        <label for="my-name">輸入姓名1</label>
+        <input id="my-name" type="text" value="BBB">
+        <br>
+        <label for="my-name-2">輸入姓名2
+            <div>AAAAAAAAAAAAA</div>
+            <input id="my-name-2" type="text" value="CCC">
+        </label>
+        <br>
+        <!-- radioBox -->
+        <!-- &nbsp;為顯示空白 -->
+        性別&nbsp;&nbsp;&nbsp;<label for="boy">男</label>
+        <!-- radio為圈選 -->
+        <!-- 當name相同只能擇一 -->
+        <input type="radio" name="gender" id="boy">
+        <label for="girl">女</label>
+        <input type="radio" name="gender" id="girl">
+        <br>
+        年齡: <input type="number" min="0" max="200">
+        <br>
+        <!-- checkbox=多選 -->
+        午餐:
+        <input type="checkbox" id="beef"><label for="beef">牛肉</label>
+        <input type="checkbox">豬肉
+        <input type="checkbox">羊肉
+        <input type="checkbox">雞肉
+        <input type="checkbox">海鮮
+        <br>
+        電話:
+        <input type="tel">
+        <br>
+        郵件:
+        <input type="email">
+        <br>
+        密碼:
+        <input type="password">
+        <br>
+        <input type="file">
+        <br>
+        <!-- 下拉式選單 -->
+        <select>
+            <option value="04">台中市</option>
+            <option value="02">台北市</option>
+            <option value="07">高雄市</option>
+        </select>
+        <br>
+        <button><a href="http://youtube.com" target="_blank">按我</button></a>
+    </form>
+</body>
+
+</html>

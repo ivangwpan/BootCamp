@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 100vw;
+            width: 100%;
+            background-color: black;
+            position: absolute;
+            margin: 0;
+        }
+
+        .header- {
+            height: 50px;
+            width: 100%;
+            border-bottom: 1px solid gray;
+            position: fixed;
+            background-color: rgb(32, 31, 31);
+            z-index: 99;
+        }
+
+        .container- {
+            width: calc(100%);
+            height: calc(100% - 51px);
+            /* border: 1px solid blue; */
+            position: absolute;
+        }
+
+        .container-L {
+            width: 60px;
+            height: 100%;
+            border-right: 1px solid gray;
+            float: left;
+            top: 50px;
+            position: fixed;
+            background-color: rgb(32, 31, 31);
+        }
+
+        .container-R {
+            width: calc(100% - 61px);
+            height: 100%;
+            float: right;
+            position: relative;
+        }
+
+        .banner {
+            height: 40%;
+            width: 100%;
+            background-color: azure;
+            border-radius: 1.5%;
+            background-image: url(./img/banner.jpg);
+            background-size: cover;
+            position: relative;
+        }
+
+        .profile {
+            height: calc(15%);
+            width: calc(100%);
+            border-bottom: 1px solid gray;
+            position: relative;
+            background-color: rgb(32, 31, 31);
+        }
+
+        .button {
+            height: 50px;
+            width: calc(100%);
+            /* border: 1px solid yellow; */
+            position: absolute;
+            background-color: rgb(32, 31, 31);
+        }
+
+        .facebook {
+            width: 20%;
+            height: 70%;
+            background-color: transparent;
+            font-size: 200%;
+            font-weight: bolder;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            color: white;
+            position: absolute;
+            left: 20px;
+            float: left;
+            top: 15%;
+        }
+
+        .smallcircleL {
+            border-radius: 50%;
+            background-color: white;
+            height: 70%;
+            position: absolute;
+            width: 35px;
+            float: left;
+            top: 15%;
+            background-image: url(./img/放大鏡.jpg);
+            background-size: cover;
+            left: 200px;
+        }
+
+        .smallcircleR1 {
+            border-radius: 50%;
+            background-color: white;
+            height: 70%;
+            position: absolute;
+            width: 35px;
+            float: right;
+            right: calc(2% + 90px);
+            top: 15%;
+            background-image: url(./img/messenger.jpg);
+            background-size: cover;
+        }
+
+        .smallcircleR2 {
+            border-radius: 50%;
+            background-color: white;
+            height: 70%;
+            position: absolute;
+            width: 35px;
+            float: right;
+            right: calc(2% + 45px);
+            top: 15%;
+            background-image: url(./img/notification.png);
+            background-size: cover;
+        }
+
+        .smallcircleR3 {
+            border-radius: 50%;
+            background-color: white;
+            height: 70%;
+            position: absolute;
+            width: 35px;
+            float: right;
+            right: 2%;
+            top: 15%;
+            background-image: url(./img/58978526_10158354585751729_7411073224387067904_n.png);
+            background-size: cover;
+        }
+
+        .photo {
+            float: left;
+            width: 12%;
+            height: 79.2%;
+            border: 3px solid black;
+            position: absolute;
+            left: 2%;
+            top: -15%;
+            z-index: 3;
+            border-radius: 50%;
+            background-size: cover;
+            background-image: url(./img/58978526_10158354585751729_7411073224387067904_n.png);
+        }
+
+        .info {
+            float: left;
+            width: 40%;
+            height: 90%;
+            position: absolute;
+            left: 18.5%;
+            bottom: 5%;
+
+        }
+
+        .name {
+            width: 100%;
+            height: 50%;
+            background-color: transparent;
+            color: white;
+            text-align: left;
+            line-height: 10px;
+            font-size: xx-large;
+            font-weight: bolder;
+            position: absolute;
+            font-size: 200%;
+            top: 20px;
+            margin-bottom: 1px;
+            /* background-color: blue; */
+            float: left;
+        }
+
+        .checked {
+            background-color: red;
+            height: 20px;
+            width: 20px;
+            position: absolute;
+            top: 20px;
+            float: left;
+            margin-bottom: 1px;
+            left: 135px;
+            background-image: url(./img/checked.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .hashtag {
+            width: 100%;
+            height: 50%;
+            background-color: transparent;
+            color: gray;
+            text-align: left;
+            position: absolute;
+            top: 40px;
+        }
+
+        .nametitle {
+            width: 100%;
+            height: 100%;
+        }
+
+        .homepage {
+            color: rgb(76, 101, 214);
+            text-align: center;
+            height: 100%;
+            top: 25%;
+            width: 10%;
+            left: 0;
+            /* float: left; */
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .about {
+            color: gray;
+            text-align: center;
+            height: 100%;
+            top: 25%;
+            width: 10%;
+            left: 10%;
+            /* float: left; */
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .photos {
+            color: gray;
+            text-align: center;
+            height: 100%;
+            top: 25%;
+            width: 10%;
+            left: 20%;
+            /* float: left; */
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .video {
+            color: gray;
+            text-align: center;
+            height: 100%;
+            top: 25%;
+            width: 10%;
+            left: 30%;
+            /* float: left; */
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .more {
+            color: gray;
+            text-align: center;
+            height: 100%;
+            top: 25%;
+            width: 10%;
+            left: 40%;
+            /* float: left; */
+            background-color: transparent;
+            position: absolute;
+        }
+
+        .edit {
+            color: white;
+            text-align: center;
+            height: 40px;
+            width: 40px;
+            right: 10px;
+            top: 10%;
+            line-height: 40px;
+            border-radius: 2.5%;
+            position: absolute;
+            background-color: gray;
+        }
+
+        .search {
+            color: white;
+            text-align: center;
+            height: 40px;
+            width: 40px;
+            right: 55px;
+            top: 10%;
+            background-color: transparent;
+            background-image: url(./img/放大鏡.jpg);
+            background-size: cover;
+            border-radius: 10%;
+            position: absolute;
+        }
+
+        .like {
+            color: rgb(57, 80, 185);
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            width: 120px;
+            right: 100px;
+            top: 10%;
+            background-color: rgb(83, 154, 212);
+            border-radius: 5%;
+            position: absolute;
+        }
+
+        .container-L-F {
+            width: 100%;
+            height: 100px;
+            background-color: transparent;
+            border-bottom: 1px white solid;
+        }
+
+        .house {
+            width: 30px;
+            height: 30px;
+            background-color: red;
+            margin: 20px 15px 10px 15px;
+            background-image: url(./img/house.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .photo-L {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-color: blue;
+            background-image: url(./img/58978526_10158354585751729_7411073224387067904_n.png);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .container-L-S {
+            width: 100%;
+            height: 225px;
+            background-color: transparent;
+            border-bottom: 1px white solid;
+        }
+
+        .flag {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/flag.png);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .TV {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/tv.png);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .market {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/market.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .toy {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/toy.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .nine {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/nine.jpg);
+            background-size: cover;
+            border-radius: 5%;
+        }
+
+        .container-L-T {
+            width: 100%;
+            height: 175px;
+            background-color: transparent;
+            border-bottom: 1px white solid;
+        }
+
+        .club-1 {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/club1.png);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .club-2 {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/club2.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .club-3 {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/club3.png);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .group {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/group.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .container-L-B {
+            width: 100%;
+            height: 45px;
+            background-color: transparent;
+            /* border-bottom: 1px white solid; */
+        }
+
+        .link {
+            width: 30px;
+            height: 30px;
+            margin: 15px 15px 10px 15px;
+            background-image: url(./img/link.jpg);
+            background-size: cover;
+            border-radius: 50%;
+        }
+
+        .content {
+            width: 100%;
+            height: 500px;
+            margin-top: 50px;
+            background-color: transparent;
+            position: relative;
+        }
+
+        .intro {
+            border-radius: 2.5%;
+            position: absolute;
+            margin: 10px 10px 0px 10px;
+            width: calc(100% - 20px);
+            height: calc(130%);
+            background-color: rgb(32, 31, 31);
+        }
+
+        .lorem {
+            font-size: x-large;
+            text-align: center;
+            text-indent: 20px;
+            top: 10px;
+            color: white;
+            position: absolute;
+            float: left;
+        }
+
+        .seeall {
+            position: absolute;
+            float: right;
+            color: rgb(91, 91, 230);
+            right: 20px;
+            top: 25px;
+        }
+
+        .detail {
+            width: 95%;
+            background-color: transparent;
+            height: 50px;
+            position: absolute;
+            top: 75px;
+            margin-left: 30px;
+            border-bottom: 1px solid gray;
+            line-height: 10px;
+        }
+
+        .mark {
+            float: left;
+            background-color: blue;
+            height: 40px;
+            width: 40px;
+            position: absolute;
+            left: 5px;
+            background-image: url(./img/!.jpg);
+            background-size: cover;
+            border-radius: 50%;
+            bottom: 10px;
+        }
+
+        .words1 {
+            float: left;
+            background-color: transparent;
+            height: 100%;
+            width: 80%;
+            left: 55px;
+            position: absolute;
+            color: white;
+            top: 3px;
+        }
+
+        .pictures {
+            border-radius: 2.5%;
+            position: absolute;
+            margin: 10px 10px 0px 10px;
+            top: 90px;
+            width: calc(100%);
+            background-color: rgb(255, 255, 255);
+        }
+
+        .lorem2 {
+            font-size: x-large;
+            text-indent: 20px;
+            top: 40px;
+            color: white;
+            position: absolute;
+            float: left;
+        }
+
+        .seeall2 {
+            position: absolute;
+            float: right;
+            color: rgb(91, 91, 230);
+            right: 20px;
+            top: 140px;
+        }
+
+        .picturebase {
+            width: calc(100% - 30px);
+            background-color: transparent;
+            height: calc(300px - 20px);
+            position: absolute;
+            top: 180px;
+            margin-left: 10px;
+            border-radius: 2.5%;
+            padding: 10px;
+        }
+
+        .picturebase-T {
+            width: 100%;
+            height: 70%;
+            /* background-color: blue; */
+            border-radius: 2.5%;
+            margin-bottom: 5px;
+            position: relative;
+            right: -4%;
+        }
+
+        .picturebase-B {
+            width: 100%;
+            height: 70%;
+            /* background-color: red; */
+            border-radius: 2.5%;
+            position: relative;
+            right: -4%;
+        }
+
+        .pictures-T1 {
+            padding: 2%;
+            width: calc(25%);
+            margin-right: 5%;
+            height: calc(90%);
+            float: left;
+            border-radius: 2.5%;
+            margin-right: 2%;
+        }
+
+        .pictures-T2 {
+            padding: 2%;
+            width: calc(25%);
+            margin-right: 5%;
+            height: calc(90%);
+            float: left;
+            border-radius: 2.5%;
+            margin-right: 2%;
+        }
+
+        .pictures-T3 {
+            padding: 2%;
+            width: calc(25%);
+            margin-right: 5%;
+            height: calc(90%);
+            float: left;
+            border-radius: 2.5%;
+        }
+
+        .pictures-B1 {
+            padding: 2%;
+            width: calc(25%);
+            margin-right: 5%;
+            height: calc(90%);
+            float: left;
+            border-radius: 2.5%;
+            margin-right: 2%;
+        }
+
+        .pictures-B2 {
+            padding: 2%;
+            width: calc(25%);
+            margin-right: 5%;
+            height: calc(90%);
+            float: left;
+            border-radius: 2.5%;
+            margin-right: 2%;
+        }
+
+        .pictures-B3 {
+            padding: 2%;
+            width: calc(25%);
+            margin-right: 5%;
+            height: calc(90%);
+            float: left;
+            border-radius: 2.5%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            border-radius: 2.5%;
+        }
+
+        .contentborder {
+            width: calc(100% - 40px);
+            height: 100%;
+            background-color: transparent;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-">
+        <div class="facebook">Facebook</div>
+        <div class="smallcircleL"></div>
+        <div class="smallcircleR1"></div>
+        <div class="smallcircleR2"></div>
+        <div class="smallcircleR3"></div>
+    </div>
+    <div class="container-">
+        <div class="container-L">
+            <div class="container-L-F">
+                <div class="house"></div>
+                <div class="photo-L"></div>
+            </div>
+            <div class="container-L-S">
+                <div class="flag"></div>
+                <div class="TV"></div>
+                <div class="market"></div>
+                <div class="toy"></div>
+                <div class="nine"></div>
+            </div>
+            <div class="container-L-T">
+                <div class="club-1"></div>
+                <div class="club-2"></div>
+                <div class="club-3"></div>
+                <div class="group"></div>
+            </div>
+            <div class="container-L-B">
+                <div class="link"></div>
+            </div>
+        </div>
+        <div class="container-R">
+            <div class="banner"></div>
+            <div class="profile">
+                <div class="photo"></div>
+                <div class="info">
+                    <div class="nametitle">
+                        <div class="name">Facebook</div>
+                        <div class="checked"></div>
+                    </div>
+                    <div class="hashtag">@facebook · 網路公司</div>
+                </div>
+            </div>
+            <div class="button">
+                <div class="homepage">首頁</div>
+                <div class="about">關於</div>
+                <div class="photos">相片</div>
+                <div class="video">影片</div>
+                <div class="more">更多</div>
+                <div class="edit">···</div>
+
+                <div class="search"></div>
+                <div class="like">讚</div>
+
+
+            </div>
+            <div class="content">
+                <div class="contentborder">
+                    <div class="intro"><span class="lorem">關於</span></div>
+                    <div class="seeall">查看全部</div>
+                    <div class="detail">
+                        <div class="mark"></div>
+                        <div class="words1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi excepturi
+                            assumenda dolores est totam expedita numquam magni ipsa ullam quos.</div>
+                    </div>
+                    <div class="pictures"><span class="lorem2">相片</span></div>
+                    <div class="seeall2">查看全部</div>
+                    <div class="picturebase">
+                        <div class="picturebase-T">
+                            <div class="pictures-T1"><img
+                                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/345603692_3382773575298119_6220613870230945345_n.png?stp=dst-png_p75x225&_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=XLG-B-1dNUkAX8TkoDe&_nc_ht=scontent-tpe1-1.xx&oh=00_AfAuNwMozLjCBDZcCkGyhvwKwU2fblBHUvAXdVFLm2UWnA&oe=64A575C6"
+                                    alt=""></div>
+                            <div class="pictures-T2"><img
+                                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/346323244_971365880709132_2038122748216708696_n.png?stp=dst-png_p75x225&_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=WDzb0ZBSpKgAX_1xgQA&_nc_ht=scontent-tpe1-1.xx&oh=00_AfAvXIRT-F-AzThrARWxjcMQHakbnJSMSYDA6VoIKe2rew&oe=64A4CCF0"
+                                    alt=""></div>
+                            <div class="pictures-T3"><img
+                                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/346106877_198131096440644_2862895906422568095_n.png?stp=dst-png_p75x225&_nc_cat=111&ccb=1-7&_nc_sid=730e14&_nc_ohc=-yISonlqIhIAX_pvnJy&_nc_ht=scontent-tpe1-1.xx&oh=00_AfAA-x2548utMWlX7uIS9CBhAtfbi3cup1KolRiPFkbnIw&oe=64A4A0DD"
+                                    alt=""></div>
+                        </div>
+                        <div class="picturebase-B">
+                            <div class="pictures-B1"><img
+                                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/346281757_584992853735605_2105403524747953016_n.png?stp=dst-png_p75x225&_nc_cat=109&ccb=1-7&_nc_sid=730e14&_nc_ohc=JatKm29n9SQAX8WSln9&_nc_ht=scontent-tpe1-1.xx&oh=00_AfC1P7NxVe1rADY6TIWUfmQhlyNYUk6KjsbE87iHXS_RFw&oe=64A3A10C"
+                                    alt=""></div>
+                            <div class="pictures-B2"><img
+                                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/345588224_772611577829951_8794890360885147405_n.png?stp=dst-png_p75x225&_nc_cat=108&ccb=1-7&_nc_sid=730e14&_nc_ohc=pu0_DPv2zi0AX9g0U4s&_nc_ht=scontent-tpe1-1.xx&oh=00_AfB_VSSkPEKNQHF-2-iIyLZbgx190tuaE9ekYpY3Onp_SA&oe=64A53271"
+                                    alt=""></div>
+                            <div class="pictures-B3"><img
+                                    src="https://scontent-tpe1-1.xx.fbcdn.net/v/t39.30808-6/343959099_259188003121923_3418212166397935738_n.png?stp=dst-png_p75x225&_nc_cat=104&ccb=1-7&_nc_sid=730e14&_nc_ohc=z5ryXzxqIPoAX9q-SzZ&_nc_ht=scontent-tpe1-1.xx&oh=00_AfD67FoAfc6khw4CgnTI0SQdQ-4RP3u77ElO97MRYCx0WA&oe=64A508A8"
+                                    alt=""></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-model练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<style>
+	    div{
+	        width: 100px;
+	        height: 100px;
+	    }
+	    .class1{
+	        background-color: #ff0;
+	    }
+	    .class2{
+	        background-color:#f00;
+	    }
+	</style>
+<body>
+	<div id="app" v-bind:class="{'class1':yellow,'class2':red}" v-on:click="changeColor"></div>
+	<script type="text/javascript">
+	var vm = new Vue({
+	    el:"#app",
+	    data:{
+	        yellow:true,
+	        red:false
+	    },
+	    methods:{
+	        changeColor(){
+	            this.yellow = !this.yellow;
+	            this.red = !this.red;
+	        }
+	    }
+	});
+	</script>	 
+	</body>
+</html>
+ -->
+ 
+ <!-- 第二种-->
+ <!DOCTYPE html>
+ <html>
+ 	<head>
+ 		<meta charset="utf-8">
+ 		<title>v-model练习</title>
+ 		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+ 	</head>
+ 	<style>
+ 	    div{
+ 	        width: 100px;
+ 	        height: 100px;
+ 	    }
+ 	    .class1{
+ 	        background-color: #ff0;
+ 	    }
+ 	    .class2{
+ 	        background-color:#f00;
+ 	    }
+ 	</style>
+ <body>
+ 	<div id="app" v-bind:class="colorName" v-on:click="changeColor"></div>
+ 	<script type="text/javascript">
+ 	var vm = new Vue({
+ 	    el:"#app",
+ 	    data:{
+ 	        colorName:{
+ 	            class1:true,
+ 	            class2:false
+ 	        }
+ 	    },
+ 	    methods:{
+ 	        changeColor(){
+ 	            this.colorName.class1 = !this.colorName.class1;
+ 	            this.colorName.class2 = !this.colorName.class2;
+ 	        }
+ 	    }
+ 	});
+ 	</script>	 
+ 	</body>
+ </html>
+ 

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    姓名<input type="text">
+    <button class="add">
+        新增
+    </button>
+    <button class="query">
+        查詢
+    </button>
+    <button class="delete">
+        刪除
+    </button>
+    <div>結果：<span class="result">查不到</span></div>
+    <div class="all">全部資料：</div>
+
+    <script>
+        const data = [];
+        const nameInput = document.querySelector('input[type="text"]');
+        const Result = document.querySelector('.result');
+        const AllData = document.querySelector('.all');
+        let AddData = document.querySelector('.add');
+        let Query = document.querySelector('.query');
+        let Delete = document.querySelector('.delete');
+
+        function AddName() {
+            AllData.innerHTML = '';
+            const name = nameInput.value;
+            if (name !== '') {
+                data.push(name);
+                nameInput.value = '';
+                Result.textContent = '新增ㄖ';
+                data.forEach(myFun);
+                function myFun(item, index) {
+                    AllData.innerHTML += `第${index + 1} 筆：${item} <br>`;
+                }
+            }
+            else{
+                0;
+            }
+        }
+        AddData.addEventListener('click', function () {
+            AddName();
+        })
+
+        function QueryName() {
+            const name = nameInput.value;
+            if (name !== '') {
+                const index = data.indexOf(name);
+                if (index !== -1) {
+                    Result.textContent = `找到囉，在 ${index + 1}。`;
+                }
+                else {
+                    Result.textContent = `找不到啦！`;
+                }
+            }
+        }
+        Query.addEventListener('click', function () {
+            QueryName();
+        })
+
+        function DeleteName() {
+            const name = nameInput.value;
+            if (name !== '') {
+                const index = data.indexOf(name);
+                if (index !== -1) {
+                    data.splice(index, 1);
+                    nameInput.value = '';
+                    Result.textContent = '刪除成功！';
+                }
+                else {
+                    Result.textContent = '查不到喔，不要亂刪！';
+                }
+            }
+        }
+        Delete.addEventListener('click', function () {
+            DeleteName();
+        })
+    </script>
+</body>
+
+</html>

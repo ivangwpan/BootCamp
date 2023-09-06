@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-green {
+            background-color: green;
+            width: 300px;
+            height: 300px;
+            float: right;
+            clear: left;
+            text-align: center;
+            line-height: 300px;
+            /* position: absolute; */
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+        }
+
+        .box-red {
+            background-color: red;
+            width: 150px;
+            height: 100px;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+        }
+
+        .box-purple {
+            width: 200px;
+            height: 100px;
+            background-color: purple;
+            float: left;
+            text-align: center;
+            line-height: 100px;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+            /* clear: left; */
+        }
+
+        .box-pink {
+            width: 200px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+            clear: right;
+            text-align: center;
+            line-height: 100px;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+        }
+
+        .box-blue {
+            width: 150px;
+            height: 150px;
+            background-color: rgb(112, 111, 209);
+            float: left;
+            clear: left;
+            text-align: center;
+            line-height: 150px;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+        }
+
+        .box-brown {
+            width: 200px;
+            height: 75px;
+            background-color: brown;
+            float: right;
+            text-align: center;
+            line-height: 75px;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+        }
+
+        .box-yellow {
+            width: 300px;
+            height: 75px;
+            background-color: yellow;
+            float: right;
+            clear: left;
+            text-align: center;
+            line-height: 75px;
+            animation-name: example;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            position: relative;
+            animation-direction: alternate-reverse;
+
+        }
+
+        @keyframes example {
+            from {
+                /* background-color: red; */
+                left: 0px;
+            }
+
+            to {
+                background-color: purple;
+                left: 200px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box-red">A</div>
+    <div class="box-green">C</div>
+    <div class="box-purple">B</div>
+    <div class="box-pink">D</div>
+    <div class="box-blue">E</div>
+    <div class="box-brown">F</div>
+    <div class="box-yellow">G</div>
+
+</body>
+
+</html>

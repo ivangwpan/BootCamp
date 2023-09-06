@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let data = [1,2,3,4,5,6,7,8,9,10];
+
+        data.forEach(function(item,index){
+            item+= 1000;
+            console.log(item,index);
+        })
+
+        // 對陣列中的每一元素做:的事情
+        data.forEach(myFun);
+
+        function myFun(item, index){
+            item+=100000;
+            console.log('(2)',index,item);
+        }
+    </script>
+</body>
+</html>

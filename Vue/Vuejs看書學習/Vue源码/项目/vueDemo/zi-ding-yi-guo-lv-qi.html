@@ -1,0 +1,67 @@
+<!-- 案例一 -->
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义过滤器练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	    <p>{{message}}</p>
+	    <h3>{{price}}</h1>
+	    <h2>{{price | myCurrency('￥')}}</h1>
+	</div>
+	<script type="text/javascript">
+	// filter
+	new Vue({
+	    el: '#app',
+	    data: {
+	        message: 'Hello Vue！！！',
+	        price:339
+	    },
+	    //过滤器的本质 就是一个有参数有返回值的方法
+	    filters:{
+	        myCurrency:function(myInput,arg1){
+	            console.log(arg1);
+	            //根据业务需要，对传来的数据进行处理
+	            // 并返回处理后的结果
+	            var result = arg1+myInput;
+	            return result;
+	        }
+	    }
+	})
+	</script>	 
+	</body>
+</html> -->
+
+<!-- 案例二 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自定义过滤器练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	  {{ message | vue}}
+	</div>
+	<script type="text/javascript">
+	new Vue({
+	  el: '#app',
+	  data: {
+	    message: 'vue'
+	  },
+	  filters: {
+	    vue: function (value) {
+	      if (!value) return '';
+	      value = value.toString();
+	      return value.toUpperCase();
+	    }
+	  }
+	})
+	</script>	 
+	</body>
+</html>
+

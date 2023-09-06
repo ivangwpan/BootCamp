@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>猜拳遊戲</title>
+    <style>
+        img{
+            border-radius: 50%;
+            height: 100%;
+            width: 100%;
+        }
+        button{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>猜拳遊戲</h1>
+    <p>請選擇：石頭，剪刀，布</p>
+    <button id="stone"><img src="./img/石頭.jpg" alt="">石頭</button>
+    <button id="scissors"><img src="./img/剪刀.jpg" alt="">剪刀</button>
+    <button id="paper"><img src="./img/布.jpg" alt="">布</button>
+    <p id="result"></p>
+    <script>
+        function computerChoice() {
+            const choices = ["石頭", "剪刀", "布"];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function playGame(userChoice) {
+            const computer = computerChoice();
+            const resultElement = document.querySelector('#result');
+
+            resultElement.innerHTML = "你選擇了：" + userChoice + "<br>電腦選擇了：" + computer + "<br><br>";
+
+            if (userChoice === computer) {
+                resultElement.innerHTML += "學ㄛ！";
+            } else if (
+                (userChoice === "石頭" && computer === "剪刀") ||
+                (userChoice === "剪刀" && computer === "布") ||
+                (userChoice === "布" && computer === "石頭")
+            ) {
+                resultElement.innerHTML += "你好棒棒！";
+            } else {
+                resultElement.innerHTML += "你有點爛！";
+            }
+        }
+
+        document.querySelector('#stone').addEventListener('click', function () {
+            playGame('石頭');
+        });
+
+        document.querySelector('#scissors').addEventListener('click', function () {
+            playGame('剪刀');
+        });
+
+        document.querySelector('#paper').addEventListener('click', function () {
+            playGame('布');
+        });
+    </script>
+</body>
+</html>

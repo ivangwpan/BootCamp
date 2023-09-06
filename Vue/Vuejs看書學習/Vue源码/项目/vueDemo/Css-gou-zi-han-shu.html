@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>css钩子练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	    <transition
+	            name="fade" mode="in-out" appear
+	            @before-enter="beforeEnter"
+	            @enter="enter"
+	            @after-enter="afterEnter"
+	            @appear="appear"
+	            @before-leave="beforeLeave"
+	            @leave="leave"
+	            @after-leave="afterLeave"
+	    >
+	        <div class="content" v-if="yes">{{yes}}</div>
+	    </transition>
+	</div>
+	<script>
+	   var vm = new Vue({
+	       el: "#app",
+	       data: {
+	           yes:false,
+	       },
+	       methods: {
+	           beforeEnter: function (el) {
+	               console.log('beforeEnter', el.className);
+	           },
+	           enter: function (el) {
+	               console.log('enter', el.className);
+	           },
+	           afterEnter: function (el) {
+	               console.log('afterEnter', el.className);
+	           },
+	           appear: function (el) {
+	               console.log('appear', el.className);
+	           },
+	           beforeLeave: function (el) {
+	               console.log('beforeLeave', el.className);
+	           },
+	           leave: function (el) {
+	               console.log('leave', el.className);
+	           },
+	           afterLeave: function (el) {
+	               console.log('afterLeave', el.className);
+	           }
+	       }
+	   })
+	</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>來猜拳啊！</h1>
+    <h3>選一下</h3>
+    <button id="stone"><img src="./img/石頭.jpg" alt="" style="width: 100px,radius">石頭</button>
+    <button id="scissors"><img src="./img/剪刀.jpg" alt="" style="width: 100px,radius">剪刀</button>
+    <button id="paper"><img src="./img/布.jpg" alt="" style="width: 100px,radius">布</button>
+    <p id="result"></p>
+
+    <script>
+        function Computer() {
+            const choices = ["石頭", "剪子", "布"];
+            const randomIndex = Math.floor(Math.random() * 3)
+            return choices[randomIndex]
+        }
+
+        function playGame(User) {
+            const computer = Computer();
+            const ResultElement = document.querySelector('#result');
+
+            ResultElement.innerHTML = "你選擇了：" + User + "<br>電腦選：" + computer + "<br><br>";
+
+            if (User === computer) {
+                ResultElement.innerHTML += "剛好一樣欸！";
+            } else if (
+                (User === "石頭" && computer === "剪子") ||
+                (User === "剪子" && computer === "布") ||
+                (User === "布" && computer === "石頭")) {
+                ResultElement.innerHTML += "啊不就好棒？";
+            } else {
+                ResultElement.innerHTML += "爛欸你！";
+            }
+        }
+        document.querySelector('#stone').addEventListener('click', function () {
+            playGame('石頭');
+        })
+        document.querySelector('#scissors').addEventListener('click', function () {
+            playGame('剪子');
+        })
+        document.querySelector('#paper').addEventListener('click', function () {
+            playGame('布');
+        })
+    </script>
+</body>
+
+</html>

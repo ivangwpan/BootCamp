@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            background-color: gray;
+            height: 100vh;
+            width: 100vw;
+        }
+        #box{
+            width: 100vw;
+            height: 100vh;
+            position: sticky;
+            /* margin-left: calc(50vw - 50px); */
+            /* margin-top: calc(50vh - 50px); */
+            left: 0;
+            top: 0;
+        }
+        .top{
+            height: calc(100% / 3);
+            width: 100%;
+            background-color: yellow;
+        }
+        .left{
+            width: calc(100% / 2);
+            height: calc(100% / 3 * 2);
+            background-color: blue;
+            float: left;
+        }
+        .right{
+            height: calc(100% / 3 * 2);
+            background-color: red;
+            width: calc(100% / 2);
+            float: right;
+        }
+    </style>
+</head>
+<body>
+   <div id="box"> 
+    <div class="top"></div>
+    <div class="left"></div>
+    <div class="right"></div>
+   </div>
+
+</body>
+</html>

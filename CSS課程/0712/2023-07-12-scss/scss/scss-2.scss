@@ -1,0 +1,87 @@
+// 優點：結構化
+* {
+    text-decoration: none;
+}
+
+header {
+    font-size: 32px;
+    color: blue;
+
+    nav {
+        a {
+            margin-right: 10px;
+            background-color: yellow;
+            // padding: 50px;
+            text-align: center;
+            line-height: 50px;
+
+            span {}
+        }
+
+    }
+}
+
+section {
+    font-size: 64px;
+}
+
+.box-1 {
+    width: 300px;
+    height: 200px;
+    background-color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .box-2 {
+        width: 100px;
+        height: 100px;
+        background-color: grey;
+        // margin: auto;
+        opacity: 0.6;
+        text-align: center;
+        line-height: 100px;
+    }
+}
+
+.pseudo {
+    width: 800px;
+    height: 800px;
+    font-size: 100px;
+    font-weight: bold;
+    font-style: italic;
+    background-color: red;
+    // position: relative;
+    ::first-line{
+        &:hover{
+            transform: scale(1.5);
+        }
+    }
+
+    &:before {
+        content: "我是before";
+        width: 50px;
+        height: 50px;
+        font-size: 12px;
+        // position: absolute;
+        color: aquamarine;
+        background-color: pink;
+    }
+
+    &::after {
+        content: "我在後面";
+        width: 100px;
+        height: 100px;
+        background-color: burlywood;
+        // position: absolute;
+        font-size: 1px;
+        background-image: url("https://r-xx.bstatic.com/xdata/images/xphoto/500x500/220031205.jpeg?k=bf9841e8ba89dfdf92e02d45e45dc89fcca2d981b7c74ad57d3ecf6ba64ba1c2&o=");
+        :hover{
+            transform: scale(5);
+        }
+    }
+    // &:hover{
+    //     font-size: 240px;
+    //     // transform: scale(1.2);
+    // }
+}

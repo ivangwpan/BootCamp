@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>css过渡练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+		<style>
+		    /*
+		    vue分为入场动画,和离场动画
+		    v-enter 这是入场动画开始之前的状态,即原状态 到 达到动画效果的时间段的起始点
+		    v-leave-to 是离场动画结束后的状态 即 动画效果还原到初始状态后的结束点
+		    注意下面的是类名,不要少写了点
+		    */
+		    .v-enter,.v-leave-to{
+		        opacity: 0; //透明度,0代表完全透明,1完全不透明
+		    }
+		    .v-enter-active,.v-leave-active{
+		        transition: all 1s ease;  // all 所有样式, 0.5秒动画的执行时间,ease变速执行
+		    }
+		</style>
+	</head>
+<body>
+	<div id="app">
+	     <input type="button"  @click.prevent="tag" value="button">
+	    <!--使用transition元素把需要被动画控制的元素,包裹起来-->
+	    <transition>
+	        <h3 v-if="ok">this is h3</h3>
+	    </transition>
+	</div>
+	<script>
+	    var vm = new Vue({
+	        el:"#app",
+	        data:{
+	            ok:true
+	        },
+	        methods:{
+	            tag:function () {
+	                this.ok= !this.ok
+	            }
+	        },
+	        filters:{},
+	        directives:{}
+	    })
+	</script>
+	</body>
+</html>
+

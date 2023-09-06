@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="list-group">
+        <div class="list-group-item list-group-item-action" aria-current="true">
+            還沒東西
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="請輸入" aria-label="Recipient's username"
+            aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const listGrotp = document.querySelector('.list-group');
+        const input = document.querySelector('input.form-control');
+        const btn = document.querySelector('button.btn.btn-outline-secondary');
+        let data = [];
+        let storage = sessionStorage.getItem('checklist');
+
+        if (storage) {
+            data = JSON.parse(storage);
+            addItem()
+
+        }
+
+
+        btn.addEventListener('click', () => {
+            const value = input.value;
+            // 防止blank
+            if (value.trim() === '') return;
+            data.push({
+                index: data.length + 1,
+                // 輸入的事項
+                name: value,
+                // 是否執行
+                done: false
+            });
+            input.value = '';
+            addItem()
+
+            // json=>存成字串
+            console.log(JSON.stringify(data));
+            sessionStorage.setItem("checklist", JSON.stringify(data))
+        })
+
+        listGrotp.addEventListener('click', (e) => {
+
+            const listElement = e.target;
+            listElement.classList.add('active');
+            const clickedData = data.find((item) => String(item.index) === listElement.dataset.id);
+            clickedData.done = true;
+
+            sessionStorage.setItem("checklist", JSON.stringify(data))
+
+        })
+        function addItem() {
+
+            listGrotp.innerHTML = '';
+            data.forEach((item) => {
+                if (item.done == 0) {
+                    listGrotp.innerHTML += `<div  class="list-group-item list-group-item-action" 
+                        aria-current="true" data-id="${item.index}">${item.name}</div>`;
+                }
+                else {
+                    listGrotp.innerHTML += `<div  class="list-group-item list-group-item-action active" 
+                        aria-current="true" data-id="${item.index}">${item.name}</div>`;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

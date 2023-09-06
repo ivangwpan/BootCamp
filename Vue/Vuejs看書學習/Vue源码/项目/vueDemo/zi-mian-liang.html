@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>v-cloak练习</title>
+  <script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+  <div id="app">
+      <div>
+          <child my-message="2"></child>     <!--字符串运算-->
+      </div>
+  
+      <div>
+          <child :my-message="2"></child>  <!--数值运算-->
+      </div>
+  
+  </div>
+  <script type="text/javascript">
+    Vue.config.debug = true;
+    Vue.component('child',{
+        props: ['myMessage'],    <!--定义props-->
+        template: '<span>{{ myMessage + 1}}</span><div>{{ myMessage + "a"}}</div><div>{{ myMessage + 1.23}}</div>'
+    });     <!--模板的拼接-->
+    var vm = new Vue({
+        el: '#app'
+    });
+  </script>
+</body>
+</html>
+

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font-size: 64px;
+            font-weight: bold;
+            width: 300px;
+            height: 100px;
+            text-shadow: 3px 3px black;
+            box-shadow: 1px 2px 5px yellow;
+        }
+        div.one{
+            font-size: 64px;
+            font-weight: bold;
+            width: 200px;
+            height: 100px;
+            /* text-shadow: 3px 3px black; */
+            /* shadow=x軸 y軸 (發散程度) (發散距離) */
+            box-shadow: 10px 20px 10px 2px yellow;
+        }
+
+        .multi-shadow{
+            text-shadow: 0px 0px 5px pink, 0px 0px 5px purple;
+        }
+        /* 中空字 */
+        .empty-shadow{
+            text-shadow: -1px -1px black,1px 1px black;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>酷欸</div>
+    <div class="one">好欸</div>
+    <div class="multi-shadow">好酷酷</div>
+    <div class="empty-shadow">中空弧度</div>
+</body>
+</html>

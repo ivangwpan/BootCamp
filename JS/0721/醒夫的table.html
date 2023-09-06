@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px solid #333;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+
+        /* odd奇數 even偶數 */
+        tbody tr:nth-of-type(odd) {
+            background-color: aqua;
+        }
+
+        tbody tr:nth-of-type(even) {
+            background-color: yellow;
+        }
+
+        tbody tr:nth-of-type(3n+1) {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 表格 -->
+    <table>
+        <!-- 表頭 -->
+        <thead>
+            <!-- 表頭那一列 -->
+            <tr>
+                <!-- <th colspan="2">The table header</th> -->
+                <th>column 1</th>
+                <th>column 2</th>
+            </tr>
+        </thead>
+
+        <!-- 表格內容部分 -->
+        <tbody>
+            <!-- 內容的每一列 -->
+            <tr>
+                <!-- 內容列的每一格 -->
+                <td class="td-one">The table body</td>
+                <td class="td-two">with two columns</td>
+            </tr>
+            <tr>
+                <td class="td-one">cccc</td>
+                <td class="td-two">ddd</td>
+            </tr>
+            <tr>
+                <td class="td-one">ee</td>
+                <td class="td-two">f</td>
+            </tr>
+            <tr>
+                <td class="td-one">cccc</td>
+                <td class="td-two">ddd</td>
+            </tr>
+            <tr>
+                <td class="td-one">cccc</td>
+                <td class="td-two">ddd</td>
+            </tr>
+            <tr>
+                <td class="td-one">cccc</td>
+                <td class="td-two">ddd</td>
+            </tr>
+            <tr>
+                <td class="td-one">cccc</td>
+                <td class="td-two">ddd</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+
+
+        //找出所有的class名稱 是td-one的物件
+        let tdAll_1 = document.querySelectorAll('.td-one');
+        let tdAll_2 = document.querySelectorAll('.td-two');
+        console.log(tdAll_1);
+        let gender = '';
+
+        // 條件式，條件達成即傳遞特定代號
+        if (gender == '男') {
+            tadAllBoy(3);
+            // alert('真是瑟禽阿');
+        } else {
+            tadAllGirl(5);
+            // alert('真是瑟禽阿');
+        };
+
+        //  函數  函數名稱   參數
+        function tadAllBoy(index) {
+            // alert(index);
+            tdAll_1[index].style.backgroundColor = 'blue'
+            // tdAll_2[0].style.backgroundColor = 'green'
+        };
+
+
+
+        function tadAllGirl(index) {
+            // tdAll_1[0].style.backgroundColor = 'blue'
+            tdAll_2[index].style.backgroundColor = 'green'
+        };
+    </script>
+</body>
+
+</html>

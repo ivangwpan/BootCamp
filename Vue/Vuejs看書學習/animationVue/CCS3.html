@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <transition class="animate__animated animate__bounce">
+        <div v-if="show">哈囉哈囉哈囉哈囉哈囉哈囉</div>
+      </transition>
+      <button @click="handleClick">Click！</button>
+    </div>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            show: true,
+          };
+        },
+        methods: {
+          handleClick: function () {
+            this.show = !this.show;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

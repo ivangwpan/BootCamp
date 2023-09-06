@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Vue.component()练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+ <!-- 还是使用 标签形式,引入自己的组件 -->
+	   <mycom2></mycom2>
+	</div>
+	<script>
+	    Vue.component('mycom2', {
+	        template: '<div><p>这是直接使用 Vue.component() 创建出来的组件</p></div>'
+	    })
+	
+	    // 创建 Vue 实例，得到 ViewModel
+	    var vm = new Vue({
+	        el: '#app',
+	        data: {},
+	        methods: {}
+	    });
+	</script>
+	</body>
+</html>

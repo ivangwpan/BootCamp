@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <style>
+      .heart{
+        width: 50px;
+        height: 50px;
+        background-color: yellow;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <hr> -->
+      <!-- <div>{{ myData }}</div> -->
+      <div class="container">
+        <div class="col">
+          <button @click="gender='all'" type="button" class="btn border">
+            找全部
+          </button>
+          <button @click="gender='male'" type="button" class="btn border">
+            找男
+          </button>
+          <button @click="gender='female'" type="button" class="btn border">
+            找女
+          </button>
+          <p>
+            <input v-model="form.text" class="border" type="text">
+            <input v-model="form.checkbox" class="border" type="checkbox">
+            {{form.checkbox}}
+          </p>
+        </div>
+        <div class="row row-cols-2">
+          <!-- <a href="https://www.google.com/" @click="(e)=>prevent(e)">google</a> -->
+          <!-- <a href="https://www.google.com/" @click.prevent="">google</a> -->
+          <!-- <input class="bg-danger" type="text" @keydown.65="pop()"/> -->
+          <!-- <form @submit.prevent="">
+            <input type="number" min="10" required>
+            <button type="submit">送出</button>
+          </form> -->
+          <div v-for="item in dataFilter" :key="item.id.value" class="col">
+            <div class="card">
+              <div class="heart" @click="item.like = !item.like">
+                <i v-if="item.like" class="bi bi-heart-fill" style="color:red;"></i>
+                <i v-else class="bi bi-heart"></i>
+              </div>
+              <img :src="item.picture.large" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h1 class="card-title fs-5">
+                  {{item.name.first + ' - ' + item.name.last}}
+                </h1>
+                <p class="card-text">
+                  <i
+                    v-if="item.gender === 'male'"
+                    class="bi bi-gender-male"
+                  ></i>
+                  <i v-else="'female'" class="bi bi-gender-female"></i>
+                  {{item.gender}}
+                </p>
+                <hr />
+                <p v-if="item.dob.age > 50" class="text-muted text-bg-secondary">
+                  i'm {{item.dob.age}} years old. <br />i'm so old.
+                </p>
+                <p v-else="" class="text-muted text-bg-success">
+                  i'm {{item.dob.age}} years old. <br />i'm so young.
+                </p>
+                <p class="text-bg-primary">&nbsp;{{item.email}}</p>
+                <hr />
+                <p class="text-muted">i'm from {{item.nat}}</p>
+                <div>
+                  <iframe
+                    class="w-100"
+                    frameborder="0"
+                    scrolling="no"
+                    marginheight="0"
+                    marginwidth="0"
+                    :src="location(item.location.coordinates)"
+                  ></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Hell Vue!",
+            myData: [],
+            gender: "all",
+
+            form:{
+              text:'123',
+              checkbox:false,
+            }
+          };
+        },
+        computed: {
+          dataFilter() {
+            return this.myData.filter((item) => {
+              if (this.gender === "all") {
+                return true;
+              } else {
+                return item.gender === this.gender;
+              }
+            });
+          },
+        },
+        watch: {
+          form:{
+            handler(){
+              if (this.form.text == '123') {
+                this.form.checkbox = true;
+              }
+              else{
+                this.form.checkbox = false;
+              }
+            },
+            deep:true,
+            immediate:true,
+          }
+        },
+        mounted() {
+          fetch("https://randomuser.me/api/?results=100")
+            .then((res) => {
+              return res.json();
+            })
+            .then((result) => {
+              this.myData = result.results;
+            });
+        },
+        methods: {
+          location(locate) {
+            return `https://maps.google.com.tw/maps?f=q&hl=zh-TW&geocode=&q=${locate.latitude},${locate.longitude}&z=16&output=embed&t=`;
+          },
+          filter(gender) {
+            this.myData = this.myData.filter((item) => {
+              return item.gender === gender;
+            });
+          },
+          prevent(e) {
+            console.log(e);
+            e.preventDefault();
+          },
+          pop() {
+            alert("123");
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

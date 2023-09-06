@@ -1,0 +1,159 @@
+body {
+    background-color: black;
+    margin: 0;
+}
+*{
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.box {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    color: red;
+    position: relative;
+    margin: auto;
+    overflow: hidden;
+    &:hover{
+        box-shadow: 0px 0px 300px 150px white;
+        .line1{
+            background: linear-gradient(to right, transparent, black);
+        }
+        .line2{
+            background: linear-gradient(to right, transparent, black);
+        }
+        .line3{
+            background: linear-gradient(to right, transparent, black);
+        }
+        .line4{
+            background: linear-gradient(to right, transparent, black);
+        }
+        h1{
+            border-right-color: black;
+            color: black;
+            left: calc(30%);
+            animation: rock 3s infinite;
+            @keyframes rock{
+                33%{
+                    border-right: unset;
+                    transform: rotate(180deg);
+                    width: unset;
+                }
+                66%{
+                    border-right: unset;
+                    transform: rotate(360deg) scale(2.3);
+                    width: unset;
+                }
+                99%{
+                    border-right: unset;
+                    transform: rotate(180deg);
+                    width: unset;
+                }
+            }
+        }
+    }
+
+    .line1 {
+        width: 100%;
+        height: 5%;
+        position: absolute;
+        background: linear-gradient(to right, transparent, gold);
+        animation: line1 2s linear 0s infinite;
+        left: -100%;
+
+        @keyframes line1 {
+            50% {
+                left: 100%;
+            }
+
+            100% {
+                opacity: 0;
+                left: 100%;
+            }
+        }
+    }
+
+    .line2 {
+        height: 100%;
+        width: 5%;
+        position: absolute;
+        background: linear-gradient(to bottom, transparent, gold);
+        right: 0;
+        top: -100%;
+        animation: 2s line2 linear 0.5s infinite;
+
+        @keyframes line2 {
+            50% {
+                top: 100%;
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                top: 100%;
+            }
+        }
+    }
+
+    .line3 {
+        width: 100%;
+        height: 5%;
+        position: absolute;
+        background: linear-gradient(to left, transparent, gold);
+        bottom: 0;
+        right: -100%;
+        animation: 2s line3 linear 1s infinite;
+
+        @keyframes line3 {
+            50% {
+                right: 100%;
+            }
+
+            100% {
+                right: 100%;
+            }
+        }
+    }
+
+    .line4 {
+        height: 100%;
+        width: 5%;
+        position: absolute;
+        background: linear-gradient(to top, transparent, gold);
+        bottom: -100%;
+        animation: 2s line4 linear 1.5s infinite;
+
+        @keyframes line4 {
+            50% {
+                bottom: 100%;
+            }
+
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
+    }
+    h1{
+        animation: loading 2s linear 0s infinite alternate;
+        position: absolute;
+        border-right: 5px solid red;
+        width: 0;
+        left: 50%;
+        top: 50%;
+        margin: 0;
+        transform: translate(-50% ,-50%);
+        overflow: hidden;
+        @keyframes loading{
+              100%{
+                width: 145px;
+              }
+        }
+    }
+}

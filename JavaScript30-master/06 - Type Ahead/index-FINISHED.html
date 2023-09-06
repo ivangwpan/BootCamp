@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css"> <!-- 引入外部CSS樣式表 -->
+  <link rel="icon" href="https://fav.farm/✅" /> <!-- 設置網頁圖標 -->
+</head>
+
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State"> <!-- 輸入框，用於輸入城市或州份名稱 -->
+    <ul class="suggestions">
+      <li>Filter for a city</li> <!-- 預設提示1 -->
+      <li>or a state</li> <!-- 預設提示2 -->
+    </ul>
+  </form>
+
+  <script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    const cities = []; // 儲存城市數據的數組
+    const searchInput = document.querySelector('.search'); // 選擇輸入框元素
+    const suggestions = document.querySelector('.suggestions'); // 選擇搜尋建議列表元素
+
+
+    fetch(endpoint)
+      .then(blob => blob.json()) // 發起網絡請求並將回應轉換成 JSON 格式
+      .then(data => cities.push(...data)); // 將城市數據添加到 cities 數組
+
+    function findMatches(wordToMatch, cities) {
+      return cities.filter(place => {
+        // 'gi'=>正則表達式中的全域(模糊)匹配
+        const regex = new RegExp(wordToMatch, 'gi'); // 創建正則表達式以進行模糊匹配
+        return place.city.match(regex) || place.state.match(regex); // 判斷城市或州份是否匹配
+      });
+    }
+
+    function numberWithCommas(num) {
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); // 將數字轉換成千位分隔的格式
+    }
+
+    function displayMatches() {
+      const matchArray = findMatches(this.value, cities); // 找到匹配的城市或州份
+      const html = matchArray.map(place => {
+        const regex = new RegExp(this.value, 'gi'); // 創建正則表達式以進行高亮顯示
+        const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`); // 將匹配部分用 <span> 進行高亮
+        const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`); // 將匹配部分用 <span> 進行高亮
+        return `
+      <li>
+        <span class="name">${cityName}, ${stateName}</span> <!-- 顯示城市和州份名稱 -->
+        <span class="population">${numberWithCommas(place.population)}</span> <!-- 顯示人口數，並進行千位分隔 -->
+      </li>
+    `;
+      }).join(''); // 將生成的HTML結構合併成一個字符串
+      suggestions.innerHTML = html; // 將HTML結構插入到搜尋建議列表中
+    }
+
+
+    searchInput.addEventListener('change', displayMatches); // 監聽輸入框的變化，執行 displayMatches 函數
+    searchInput.addEventListener('keyup', displayMatches); // 監聽鍵盤按鍵的放開，執行 displayMatches 函數
+
+  </script>
+</body>
+
+</html>

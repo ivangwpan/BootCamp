@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            border-radius: 15px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            display: flex;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        #diceContainer {
+            display: flex;
+            width: 300px;
+            height: 500px;
+            justify-content: center;
+            overflow: scroll;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>擲骰子</h1>
+    <button id="rollDice">擲吧</button>
+    <button id="clear">清除紀錄</button>
+    <div id="diceContainer"></div>
+    <div id="diceRecord"></div>
+    <img src="./img/1.jpg" class="image0" >
+    <img src="./img/1.jpg" class="image0" >
+    <img src="./img/1.jpg" class="image0" >
+
+    <script>
+        let StartRoll = document.querySelector('#rollDice');
+        let Result = document.querySelector('#diceContainer');
+        let Record = document.querySelector('#diceRecord');
+        let ClearBtn = document.querySelector('#clear');
+        let image0 = document.querySelectorAll('.image0');
+
+
+        StartRoll.addEventListener('click', function () {
+            let dice1, dice2, dice3;
+            let count = 0;
+            let Detail = [];
+
+            while (true) {
+                count++;
+                dice1 = Math.floor(Math.random() * 6) + 1;
+                dice2 = Math.floor(Math.random() * 6) + 1;
+                dice3 = Math.floor(Math.random() * 6) + 1;
+
+                Detail.push(`第${count}次: ${dice1} ${dice2} ${dice3}`);
+                allDiceEqual = (dice1 === dice2 && dice2 === dice3);
+                image0[0].src = './img/'+dice1+'.jpg';
+                image0[1].src = './img/'+dice2+'.jpg';
+                image0[2].src = './img/'+dice3+'.jpg';
+
+                if (dice1 === dice2 && dice2 === dice3) {
+                    Result.innerHTML = '';
+                    break;
+                }
+            }
+            let DiceRecord = Detail.join("<br>");
+            Result.innerHTML = DiceRecord;
+
+            let rollRecord = `第${count}次: ${dice1} ${dice2} ${dice3}`;
+            Record.innerHTML = rollRecord;
+        });
+
+        ClearBtn.addEventListener('click', function () {
+            Result.innerHTML = '';
+            for (let i = 0; i < image0.length; i++) {
+                image0[i].style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>

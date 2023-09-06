@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>双向过滤器练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	    <input type="text" v-model=" message | filterHtml ">
+	    <br>
+	    <label v-html="message"></label>
+	</div>
+	<script type="text/javascript">
+	new Vue({
+      el:'#app',
+      data:{
+        message:'<strong>这是段文字！</strong>'//定义一段文字
+    }
+   });
+
+   Vue.filter('filterHtml',{
+    read:function(val){//val就是以获取的message的值
+        return val.replace(/<[^>]*>/g);//去除文字的<...></...>标签
+    },
+    write:function(){
+        return val;
+    }
+});
+	</script>	 
+	</body>
+</html>
+
+

@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8">
+
+<title>全局过滤器练习</title>
+
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script type="text/javascript">
+
+let App = {
+
+template:
+
+<div>
+
+<input type="text" v-model="myText"/>
+
+{{ myText | myvue('Hello', 'Vue')}}
+
+</div>`,
+
+data() {
+
+return {
+
+myText: '',
+
+};
+
+},
+
+}
+
+Vue.filter('myvue', function(val, val2, val3) {
+
+return val2 + val3 + ': ' + val.split('').reverse().join('');
+
+});
+
+new Vue({
+
+el: document.getElementById('app'),
+
+components: {'app': App},
+
+template: `<app />`,
+
+});
+
+</script>
+
+</body>
+
+</html> -->

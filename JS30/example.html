@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>LocalStorage</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://fav.farm/✅" />
+</head>
+
+<body>
+
+  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px"
+    viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+  </svg>
+
+  <div class="container">
+    <h2>LOCAL TAPAS</h2>
+    <p></p>
+    <ul class="plates">
+      <li>Loading Tapas...</li>
+    </ul>
+    <form class="click-box">
+      <input type="text" name="item" required>
+      <input type="submit" value="+ Add Item">
+    </form>
+  </div>
+  <script>
+
+    const addItems = document.querySelector('.click-box');
+    const itemsList = document.querySelector('.plates');
+    const items = JSON.parse(localStorage.getItem('items')) || [];
+
+    function addItem(e) {
+
+      // stop the URL
+      e.preventDefault();
+
+      const text = (this.querySelector('[name=item]')).value;
+      const item = {
+        text,
+        done: false
+      };
+
+      items.push(item);
+      populateList(items, itemsList);
+      localStorage.setItem('items', JSON.stringify(items));
+      this.reset();
+    }
+
+    function populateList(plates = [], platesList) {
+      platesList.innerHTML = plates.map((plate, i) => {
+        return `
+        <li>
+          <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
+          <label for="item${i}">${plate.text}</label>
+        </li>
+      `;
+      }).join('');
+    }
+
+    function toggleDone(e) {
+      if (!e.target.matches('input')) return; // skip this unless it's an input
+      const el = e.target;
+      const index = el.dataset.index;
+      items[index].done = !items[index].done;
+      localStorage.setItem('items', JSON.stringify(items));
+      populateList(items, itemsList);
+    }
+
+    addItems.addEventListener('submit', addItem);
+    itemsList.addEventListener('click', toggleDone);
+
+    populateList(items, itemsList);
+
+  </script>
+
+
+</body>
+
+</html>

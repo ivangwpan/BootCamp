@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Local Tapas</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <h2>LOCAL TAPAS</h2>
+    <p></p>
+    <ul class="detail">
+      <li>Loading Tapas...</li>
+    </ul>
+    <div class="add-items">
+      <input type="text" name="item" placeholder="Item Name" required />
+      <button id="submit">Add</button>
+    </div>
+  </div>
+
+  <script>
+
+    function displayTapasList() {
+
+      const addButton = document.querySelector("#submit");
+      const tapasList = document.querySelector(".detail");
+      const storedItems = JSON.parse(localStorage.getItem("items")) || [];
+      const tapasItemsHTML = storedItems.map((item, index) => `
+                <li>
+                    <input type="checkbox" data-index="${index}" ${item.done ? 'checked' : ''} />
+                    <label>${item.name}</label>
+                </li>
+            `).join('');
+
+
+      tapasList.innerHTML = tapasItemsHTML;
+
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', handleTapasItemChange);
+      });
+    }
+
+
+    function handleTapasItemChange(event) {
+
+      const index = parseInt(event.target.dataset.index);
+      const storedItems = JSON.parse(localStorage.getItem("items")) || [];
+      storedItems[index].done = event.target.checked;
+
+      localStorage.setItem("items", JSON.stringify(storedItems));
+    }
+
+    function addNewTapasItem() {
+      const inputField = document.querySelector('input[type="text"]');
+      const newItemName = inputField.value.trim();
+
+      if (newItemName === '') return;
+
+      const storedItems = JSON.parse(localStorage.getItem("items")) || [];
+      const newItem = { name: newItemName, done: false };
+
+      storedItems.push(newItem);
+      localStorage.setItem("items", JSON.stringify(storedItems));
+      inputField.value = '';
+      displayTapasList();
+    }
+
+    addButton.addEventListener('click', addNewTapasItem);
+
+    displayTapasList();
+  </script>
+</body>
+
+</html>

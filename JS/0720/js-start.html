@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .box, .round{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin-bottom: 10px;
+            font-size: 48px;
+            font-weight: bold;
+            line-height: 100px;
+            text-align: center;
+        }
+        .round{
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <p>mission</p>
+    <p>1.找出一號盒子，將底色變紅</p>
+    <p>2.找出二號盒子，將底色變黃</p>
+    <p>3.找出三號盒子，將底色變綠</p>
+    <p>4.找出一號圓形，將底色變紅</p>
+    <p>5.找出二號圓形，將底色變黃</p>
+    <p>6.找出三號圓形，將底色變綠</p>
+    <p>7.找出四號圓形，黑底白字</p>
+    <p>8.找出四號盒子，綠底黃字</p>
+    <p>9.摸四號盒子，顯示訊息</p>
+    <p>10.摸四號圓形，變顏色</p>
+    <div class="playground">
+        <div id="box-1" class="box">1</div>
+        <div id="box-2" class="box">2</div>
+        <div id="box-3" class="box">3</div>
+        <div id="round-1" class="round">4</div>
+        <div id="round-2" class="round">5</div>
+        <div id="round-3" class="round">6</div>
+        <div class="box box-4">7</div>
+        <div class="round round-4">8</div>
+    </div>
+    <script>
+        // 出現在開發者工具的console
+        console.log(123)
+        // js寫法，小駝峰式寫法>querySelectorAll
+        // 符號可以使用_，不可使用運算符號
+        // 建議使用單引號
+        document.querySelector('#box-1').style.backgroundColor='red';
+        // (標的.選擇器('id').設定樣式.背景顏色)
+        document.querySelector('#box-2').style.backgroundColor='yellow';
+        document.querySelector('#box-3').style.backgroundColor='green';
+        document.querySelector('#round-1').style.color='red';
+        document.querySelector('#round-2').style.color='yellow';
+        // document.querySelector('#round-3').style.backgroundColor='red';
+        // document.querySelector('#round-3').style.color='green';
+        const round_3 = document.querySelector('#round-3');
+        round_3.style.backgroundColor='red';
+        round_3.style.color= 'green';
+        document.querySelector('.box-4').style.backgroundColor='black';
+        document.querySelector('.box-4').style.color='white';
+        document.querySelector('.round-4').style.backgroundColor='green';
+        document.querySelector('.round-4').style.color='yellow';
+
+        document.querySelector('#box-1').addEventListener('click',function(){
+                                        // 事件監聽，    '按下'的事件
+            console.log('摸屁喔')
+        })
+        document.querySelector('.box-4').addEventListener('click',function(){
+                                        // 事件監聽，    '按下'的事件
+            console.log('摸屁喔')
+        })
+        document.querySelector('.round-4').addEventListener('click',function(){
+                                        // 事件監聽，    '按下'的事件
+            console.log('摸屁喔');
+            document.querySelector('.round-4').style.backgroundColor='black';
+        })
+    </script>
+</body>
+</html>

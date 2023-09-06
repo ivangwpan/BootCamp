@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue中 使用 animate.css 库</title>
+  <script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css">
+</head>
+<body>
+
+  <div id="app">
+    <transition name="fade"
+                enter-active-class="animated swing"
+                leave-active-class="animated shake"
+    >
+      <div v-if="show">
+       世界，你好我是一颗海草！！！
+      </div>
+    </transition>
+
+    <button @click="handleClick">点击我</button>
+  </div>
+
+  <script>
+
+    var vm = new Vue({
+      el: "#app",
+      data: {
+        show: true
+      },
+      methods: {
+        handleClick: function(){
+          this.show = ! this.show
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

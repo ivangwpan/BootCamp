@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <li v-for="(item,index) in dataList">{{index}}---{{item}}</li>
+        <hr>
+        <li v-for="item in dataList">{{item}}</li>
+        <hr>
+        <hr>
+        <li v-for="(value,key) in newObj">{{key}}======{{value}}</li>
+        <hr>
+        <li v-for="value in newObj">{{value}}</li>
+        <hr>
+        <hr>
+        <li v-for="datadict in objDataList">{{datadict}}</li>
+        <li v-for="datadict in objDataList">{{datadict.name}}</li>
+        <li v-for="datadict in objDataList">{{datadict.age}}</li>
+
+    </div>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    dataList:['1','2','3','4','5','6'],
+                    newObj:{
+                        "name":"lili",
+                        "age":20
+                    },
+                    objDataList:[{
+                        "name":"wangwu",
+                        "age":18
+                    },
+                ]
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-else-if练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<ul id="list">
+		            <li v-if="type === 'A'">A</li>
+		            <li v-else-if="type === 'B'">B</li>
+		            <li v-else-if="type === 'C'">C</li>
+		            <li v-else>false</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	  var vm = new Vue({
+			el: '#app',
+			data:{
+				type:'y'
+			}
+		})
+	</script>	 
+</body>
+</html>
+

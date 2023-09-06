@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let cityAll = ['基隆市', '新北市', '臺北市', '桃園市', '新竹市', '新竹縣', '苗栗縣', '臺中市', '南投縣', '彰化縣', '雲林縣', '嘉義市', '嘉義縣', '臺南市', '高雄市', '屏東縣', '宜蘭縣', '花蓮縣', '臺東縣', '澎湖縣', '金門縣', '連江縣']
+        // 匿名函式
+        cityAll.forEach(function(city,index){
+            console.log(index,city);
+        })
+
+
+        // 箭頭函式
+        cityAll.forEach((city,index)=>{
+            console.log(index,city);
+        })
+
+        // callback
+        cityAll.forEach(showcity)
+        function showcity(city,index){
+            console.log(index,city);
+        }
+
+        // map
+        const number1 = [123,445,367,463253,234];
+        const number2 = number1.map(getDouble);
+        // const number3 = number2.flatMap(getDouble);
+
+        function getDouble(value,index){
+            return value*2;
+        }
+        console.log(number1,number2);
+
+        // 過濾陣列
+        const over400 = number1.filter(myfilter);
+        function myfilter(value){
+            return value > 400;
+        }
+        console.log(over400);
+
+        // 陣列降維
+        const Arr3D = [[1,2],[3,4,5,6],[123,123,225]];
+        const newArr3D = Arr3D.flat();
+        const newMapArr3D = Arr3D.flatMap(x=>x+2);
+        console.log(newArr3D);
+        console.log(newMapArr3D);
+    </script>
+</body>
+</html>

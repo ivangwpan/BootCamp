@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        /* background-color: black; */
+      }
+      .class1 {
+        background-color: yellow;
+      }
+      .class2 {
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div :class="{'class1':yellow,'class2':red}" v-on:click="changeColor">
+        {{ message }}
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            yellow: true,
+            red: false,
+          };
+        },
+        methods: {
+          changeColor() {
+            this.yellow = !this.yellow;
+            this.red = !this.red;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

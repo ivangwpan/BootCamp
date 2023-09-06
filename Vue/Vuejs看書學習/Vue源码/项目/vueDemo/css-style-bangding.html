@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<!-- v-bind还支持数组形式 -->
+		<!--v-bind:class="[ isActive ? 'active' : '',  isGreen ? 'green' : '']" -->
+		<div id="app">
+			<div
+			class="test"
+			v-bind:class="{active : isActive , green : isGreen}"
+			style="width: 200px;height: 200px;text-align: center;line-height: 200px;">
+			Hi...Vue
+			</div>
+			
+			<div 
+			:style="{color : color , fontSize:size, background : isRed ? '#FF0000' : ''}">
+			hi...vue
+			</div>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el:"#app",
+				data:{
+					/* 当isActive为true时，则可以进行颜色的渲染，为false时则不可以进行颜色渲染*/
+					isActive : true,
+					isGreen : true,
+					color : '#FFFFFF',
+					size : '50px'
+					/* isRed : true */
+				}
+			});
+		</script>
+		<style>
+			.test{font-size: 30px;}
+			.green{color: #00FF00;}
+			.active{background: #FF0000;}
+		</style>
+	</body>
+</html>

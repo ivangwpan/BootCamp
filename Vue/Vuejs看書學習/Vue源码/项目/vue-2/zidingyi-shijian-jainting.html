@@ -1,0 +1,95 @@
+
+<!-- 案例一 -->
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>自定义事件监听</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	    <p>总数:{{total}}</p>
+	    <my-component
+	      @increase="handleGetTotal"
+	      @reduce="handleGetTotal">
+	     </my-component>
+	</div>
+	<script>
+	    Vue.component('my-component',{
+	          template: '\
+	            <div>\
+	              <button @click="handleIncrease">-1</button>\
+	              <button @click="handleReduce">+1</button>\
+	            </div>',
+	          data: function () {
+	            return {
+	              counter: 0
+	            }
+	          },
+	          methods: {
+	            handleIncrease: function () {
+	              this.counter--;
+	              this.$emit('increase', this.counter);
+	            },
+	            handleReduce: function () {
+	              this.counter++;
+	              this.$emit('reduce', this.counter);
+	            }
+	          }
+	        });
+	     
+	        var app = new Vue({
+	          el: '#app',
+	          data: {
+	            total: 0
+	          },
+	          methods: {
+	            handleGetTotal: function (total) {
+	              this.total = total;
+	            }
+	          }
+	        });
+	</script>
+	</body>
+</html> -->
+
+
+<!-- 案例二 -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>自定义事件监听（$emit()发布事件）</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="root">
+	     <child @click="handleClick"></child>
+	</div>
+	<script>
+	   Vue.component('child', {
+	        template: '<div @click="handleChild">点击我</div>',
+	        methods: {
+	              handleChild: function() {
+	                   this.$emit('click');
+	              }
+	        }
+	   })
+	   
+	   var vm = new Vue({
+	        el: '#root',
+	        methods: {
+	              handleClick: function() {
+	                   alert(1);
+	              }
+	        }
+	   })
+	</script>
+	</body>
+</html>

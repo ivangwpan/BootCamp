@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="container-md">
+            <div class="row">
+                <div v-for="(card, index) in dogeData" :key="card.id" class="col-12 col-md-3">
+                    <div class="card">
+                        <img :src="cardImage(card.power).images" class="card-img-top" alt="..." style="width: 100px;">
+                        <div class="card-body">
+                            <!-- 寫法一 -->
+                            <!-- <h5 :class="{ 'text-danger':flase,'fs-3':true}" class="card-title">{{cardImage(card.power).name}}</h5> -->
+                            <!-- 寫法二 -->
+                            <h5 :class="cardTitleStyle(card.power)" class="card-title">{{cardImage(card.power).name}}</h5>
+                            <p class="card-text">戰力指數：{{card.power}}</p>
+                            <button type="button" @click="plus(card)">增加戰力</button>
+                            <button type="button" @click="minus(card)">減少戰力</button>
+                            <button type="button" @click="card.power=0">龜苓膏</button>
+                            <button type="button" @click="originPower(dogeData.power)">還我Ｒ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    dogName:{
+                        weak: '軟爛狗勾',
+                        dance: '跳舞阿狗',
+                        strong: '大壯狗哥',
+                    },
+                    images: {
+                        weak: './img/weak.jpg',
+                        dance: './img/doge-meme.gif',
+                        strong: './img/strong.jpg',
+                    },
+                    dogeData: [
+                        {
+                            id: 1,
+                            power: 0,
+                        },
+                        {
+                            id: 2,
+                            power: 300,
+                        },
+                        {
+                            id: 3,
+                            power: 90000,
+                        }
+                    ]
+                }
+            },
+            mounted() {
+            },
+            methods: {
+                plus(card){
+                    if (card.power + 1000 > 100000) {
+                        card.power = 100000;
+                    }else{
+                        card.power += 1000;
+                    }
+                },
+                minus(card){
+                    if (card.power - 1000 < 0) {
+                        card.power = 0;
+                    }else{
+                        card.power -= 1000;
+                    }
+                },
+                cardImage(power) {
+                    const { images, dogName } = this;
+                    if (power > 89999) {
+                        return {
+                            name: dogName.strong,
+                            images: images.strong,
+                            }
+                    }
+                     else if (power > 299) {
+                        return {
+                            name: dogName.dance,
+                            images: images.dance,
+                        };
+                    }
+                     else {
+                        return {
+                            name: dogName.weak,
+                            images: images.weak,
+                        };
+                    }
+                    // console.log(power);
+                },
+                
+                cardTitleStyle(power){
+                    console.log(power);
+                    if (power>5000) {
+                        return 'text-danger'
+                    }
+                },
+                originPower() {
+                    this.dogeData = [
+                        {
+                            name: 'weak',
+                            id: 1,
+                            power: 0,
+                        },
+                        {
+                            name: 'dance',
+                            id: 2,
+                            power: 300,
+                        },
+                        {
+                            name: 'strong',
+                            id: 3,
+                            power: 90000,
+                        }
+                    ]
+                }
+            },
+        }).mount('#app')
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

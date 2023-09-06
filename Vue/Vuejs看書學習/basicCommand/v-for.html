@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ol v-for="item in arr" class="card">1111111
+            {{item}}
+            <li v-for="index in json">
+                {{index}}
+            </li>
+        </ol>
+    </div>
+
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    message: 'Hello Vue!',
+                    arr:['蘋果','梨子','橘子','芒果'],
+                    json:{a:'麗麗',b:'小明',c:'阿宏'}
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+</html>

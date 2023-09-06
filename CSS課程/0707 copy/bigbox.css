@@ -1,0 +1,55 @@
+.bigbox {
+    background-color: rgb(255, 0, 0);
+    width: 500px;
+    height: 500px;
+    position: relative;
+    border-radius: 50%;
+    animation-name: bigbox;
+    animation-duration: 10s;
+    animation: bigbox 10s infinite;
+    position: absolute;
+}
+
+@keyframes bigbox {
+    0% {
+        left: 0%;
+        top: 0%;
+        background-color: red;
+        /* transform:translate(-100%, -100%) ; */
+    }
+
+    20% {
+        /* left: 50%; */
+        top: 50%;
+        background-color: orangered;
+        /* transform: translate(100% 100%); */
+        /* transform:translate(100%, 100%) scale(1.5); */
+    }
+
+    40% {
+        /* left: 100%; */
+        top: 100%;
+        background-color: yellow;
+        /* transform:translate(100%, 100%) ; */
+    }
+
+    60% {
+        /* left: 100%; */
+        top: 100%;
+        background-color: green;
+        /* transform:translate(100%, 100%) ; */
+    }
+
+    80% {
+        /* left: 50%; */
+        top: 50%;
+        background-color: blue;
+        /* transform:translate(100%, 100%) scale(0.5); */
+    }
+
+    100% {
+        /* left: 0%; */
+        top: 0%;
+        background-color: purple;
+        /* transform:translate(-100%, -100%) ; */
+    }

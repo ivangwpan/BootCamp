@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-once练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+		<!-- 单个元素 -->
+		<span v-once>This will never change: {{msg}}</span>
+		<!-- 有子元素 -->
+		<div v-once>
+		  <h3>你好</h3>
+		  <p>{{msg}}</p>
+		</div>
+	</div>
+	<script type="text/javascript">
+	  var vm = new Vue({
+			el: '#app',
+			data:{
+				msg:'Hello Vue'
+			}
+		})
+	</script>	 
+</body>
+</html>

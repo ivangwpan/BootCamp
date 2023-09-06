@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ARRAY:陣列、數組
+        // let a = [];
+        // let b = [1, 2, 3];
+        // let boxAll = ['box1', 'box2', 'box3'];
+        // let mixArray = [1, 'box1', true];
+        // let score = [100, 30, 50, 90, 78];
+
+
+        // console.log(score[0]);
+        // let student1 = score[0];
+        // console.log(student1);
+        // let total = score[0] + score[1] + score[2] + score[3] + score[4]
+        // console.log('total = >',total);
+        // total = 0
+        // for (let i = 0; i < 5; i++) {
+        //     total += score[i]
+        //     console.log(total);
+        // }
+
+        // >===========================
+        // 作業任務: 用javascript
+        // 1.在陣列中加入五筆資料 100, 200, 300, 400, 500=> 用push
+        // 2.修改第三筆為3000 => 自行想辦法
+        // 3.取得陣列長度 testData 陣列 長度
+        // 4.將資料移出 => pop 可以至少移三次 觀察看看
+        // 5.將陣列清空 =>
+        // 6.利用for迴圈再放10筆不同資料 => 101~110
+        // 7.刪除第三筆資料splice
+        // 8.查詢第五筆資料
+
+        let testData = [100, 200, 300, 400, 500];
+
+        testData[2] = 3000;
+        console.log(testData);
+
+        Long = testData.length
+        console.log(Long);
+
+        testData.pop();
+        testData.pop();
+        testData.pop();
+        console.log(testData);
+
+        testData = [];
+        console.log(testData);
+        
+        for (let i = 101; i <= 110; i++) {
+            testData.push(i);
+        }
+        console.log(testData);
+
+        testData.splice(2, 1);
+        console.log(testData); 
+
+        console.log(testData[4]); 
+    </script>
+</body>
+
+</html>

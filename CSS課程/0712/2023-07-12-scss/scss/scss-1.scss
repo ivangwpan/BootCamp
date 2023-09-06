@@ -1,0 +1,15 @@
+// 定義變數 varialbe
+$size:50px;
+$text-color:yellow;
+$text-color-title:blue;
+
+body{
+    font-size: $size;
+    color: $text-color;
+}
+.title{
+    background-color: pink;
+    $size-local: 24px;
+    font-size: $size-local;
+    color: $text-color-title;
+}

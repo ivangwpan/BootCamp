@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>猜拳遊戲</title>
+</head>
+<body>
+
+    <h1>猜拳遊戲</h1>
+    <p>請在控制台中打開以開始遊戲。</p>
+    <script>
+        function computerChoice() {
+            const choices = ["石頭", "剪刀", "布"];
+            const randomIndex = Math.floor(Math.random() * choices.length);
+            return choices[randomIndex];
+        }
+
+        function playGame(userChoice) {
+            const computer = computerChoice();
+            console.log("你選擇了：" + userChoice);
+            console.log("電腦選擇了：" + computer);
+
+            if (userChoice === computer) {
+                console.log("平手！");
+            } else if (
+                (userChoice === "石頭" && computer === "剪刀") ||
+                (userChoice === "剪刀" && computer === "布") ||
+                (userChoice === "布" && computer === "石頭")
+            ) {
+                console.log("你贏了！");
+            } else {
+                console.log("你輸了！");
+            }
+        }
+
+        // 在控制台中執行遊戲
+        console.log("歡迎來到猜拳遊戲！選擇一個：石頭，剪刀，布");
+        console.log("然後在控制台中輸入 playGame('你的選擇') 來開始遊戲。");
+    </script>
+</body>
+</html>

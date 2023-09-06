@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f06060;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        button {
+            width: 45px;
+            height: 25px;
+
+        }
+
+        .box-big {
+            width: 520px;
+            height: 520px;
+            background-color: #d3d3d3;
+            /* margin: auto; */
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .game-page,
+        .home-page {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timer {
+            width: 50px;
+            height: 20px;
+            text-align: center;
+            background-color: #d3d3d3;
+        }
+
+        .game-page {
+            display: none;
+        }
+
+        .continue {
+            display: none;
+        }
+
+        .box {
+            border: 5px solid #d3d3d3;
+            border-radius: 10px;
+        }
+
+        .answer {
+            opacity: 0.5;
+        }
+
+        #hint:hover {
+            box-shadow: 0 0 25px 25px white;
+        }
+
+        .shine {
+            animation: shineAnimation 1s;
+        }
+
+        @keyframes shineAnimation {
+            0% {
+                box-shadow: 0 0 10px 0 black;
+            }
+
+            50% {
+                box-shadow: 0 0 30px 10px black;
+            }
+
+            100% {
+                box-shadow: 0 0 10px 0 black;
+            }
+        }
+
+        #countbox {
+            width: 200px;
+            height: 100px;
+            background-color: yellow;
+            /* position: fixed; */
+            line-height: 100px;
+            text-align: center;
+            top: calc(70% - 50px);
+            display: flex;
+        }
+
+        #hint {
+            width: 200px;
+            height: 100px;
+            background-color: white;
+            /* position: fixed; */
+            top: calc(50% - 50px);
+            line-height: 100px;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home-page">
+        <button class="start">開始</button>
+        <button class="continue">繼續</button>
+
+    </div>
+    <div class="game-page">
+        <div class="timer">60</div>
+        <button class="pause">暫停</button>
+        <button id="hint">給點提示</button>
+        <button class="give-up">放棄</button>
+        <div id="countbox">
+            <span>答對次數：</span>
+            <div id="rightcount"></div>
+        </div>
+
+        <div class="box-big"></div>
+    </div>
+    <script>
+        let countright = document.querySelector('#rightcount');
+        let correctCount = 0;
+        const boxBig = document.querySelector('.box-big');
+        let timer = document.querySelector('.timer');
+        let seconds = 60;
+        let level = 2;
+        let size = 100 / level;
+        let count = 0;
+        let hintchances = 3;
+        function countDown() {
+            timer.innerHTML = seconds;
+            seconds--;
+            console.log(seconds);
+            if (seconds < -1) {
+                clearInterval(timerMachine);
+                alert('時間到');
+            }
+        }
+
+        start = document.querySelector('.start');
+        continueBtn = document.querySelector('.continue');
+        pause = document.querySelector('.pause');
+        giveUp = document.querySelector('.give-up');
+        homePage = document.querySelector('.home-page');
+        gamePage = document.querySelector('.game-page');
+
+        start.addEventListener('click', () => {
+            homePage.style.display = 'none';
+            gamePage.style.display = 'flex';
+            timerMachine = setInterval(countDown, 1000);
+            seconds = 60;
+            level = 2;
+            size = 100 / level;
+            count = 0;
+            game();
+        })
+
+        giveUp.addEventListener('click', () => {
+            homePage.style.display = 'flex';
+            gamePage.style.display = 'none';
+            start.style.display = 'flex';
+            continueBtn.style.display = 'none';
+            clearInterval(timerMachine);
+            boxBig.innerHTML = '';
+            let hintchances = 3;
+            countright.innerText = 0;
+            correctCount = 0;
+            
+        })
+        pause.addEventListener('click', () => {
+            clearInterval(timerMachine);
+            gamePage.style.display = 'none';
+            homePage.style.display = 'flex';
+            start.style.display = 'none';
+            continueBtn.style.display = 'flex';
+        })
+        continueBtn.addEventListener('click', () => {
+            clearInterval(timerMachine);
+            timerMachine = setInterval(countDown, 1000);
+            homePage.style.display = 'none';
+            gamePage.style.display = 'flex';
+        })
+
+
+        function game() {
+            let hintchances = 3;
+
+            let r = Math.floor(Math.random() * 256);
+            let g = Math.floor(Math.random() * 256);
+            let b = Math.floor(Math.random() * 256);
+            let color = `rgb(${r},${g},${b})`;
+            for (let i = 0; i < level * level; i++) {
+                boxBig.innerHTML = boxBig.innerHTML + `<div class="box" style="width:${size}%; height:${size}%; background-color:${color};"></div>`;
+            }
+            let randomAnswer = Math.floor(Math.random() * level ** 2 + 1);
+            const answer = document.querySelector(`.box:nth-of-type(${randomAnswer})`);
+            size = 100 / level;
+            let hintBox = document.querySelector('#hint');
+            let answerBox = document.querySelector('.answer');
+
+            hintBox.addEventListener('click', function () {
+
+
+                if (hintchances > 0) {
+                    hintchances--;
+                    answer.classList.add('shine');
+                    setTimeout(function () {
+                        answer.classList.remove('shine');
+                    }, 1000);
+                }
+                else {
+                    alert('你用光了');
+                    homePage.style.display = 'flex';
+                    gamePage.style.display = 'none';
+                    start.style.display = 'flex';
+                    continueBtn.style.display = 'none';
+                    clearInterval(timerMachine);
+                    boxBig.innerHTML = '';
+                    let hintchances = 3;
+                    let correctCount = 0;
+                }
+
+            });
+            
+            answer.classList.add('answer');
+            answer.style.opacity = `${0.5 + level * 0.03}`;
+            answer.addEventListener('click', function () {
+                correctCount++;
+                countright.innerText = correctCount;
+                count++;
+                boxBig.innerHTML = '';
+                level++;
+                size = 100 / level;
+                game();
+            })
+        }
+
+    </script>
+</body>
+
+</html>

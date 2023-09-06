@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>js过渡使用练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<template>
+	  <div id="app">
+	    <button @click="show = !show">按钮</button>
+	    <transition 
+	      name="fade"
+	      @before-enter="beforeEnter"
+	      @enter="enter"
+	      @after-enter="afterEnter"
+	      @enter-cancelled ="enterCanelled"
+	      @before-leave="beforeLeave"
+	      @leave="leave"
+	      @after-leave="afterLeave"
+	      @leave-cancelled="leaveCancelled">
+	      <h3 class="title" v-show="show">聚慕课</h3>
+	    </transition>
+	  </div>
+	</template>
+	<script>
+       import Vue from "vue";
+       export default {
+         name: "app",
+         data() {
+           return {
+             show: true
+           };
+         },
+         methods: {
+           beforeEnter() {
+             console.log("beforeEnter");
+           },
+           enter() {
+             console.log("enter");
+           },
+           afterEnter() {
+             console.log("afterEnter");
+           },
+           enterCanelled() {
+             console.log("enterCanelled");
+           },
+           beforeLeave() {
+             console.log("beforeLeave");
+           },
+           leave() {
+             console.log("leave");
+           },
+           afterLeave() {
+             console.log("afterLeave");
+           },
+           leaveCancelled() {
+             console.log("leaveCancelled");
+           }
+         }
+       };
+       </script>
+       
+       <style scoped>
+       .title {
+         width: 100px;
+         line-height: 26px;
+         font-size: 16px;
+         color: blue;
+       }
+       .fade-enter,
+       .fade-leave-to {
+         opacity: 0;
+       }
+       .fade-enter-active,
+       .fade-leave-active {
+         transition: opacity .6s ease-in-out;
+       }
+       </style>
+	 </script>
+	</body>
+</html>
+
+

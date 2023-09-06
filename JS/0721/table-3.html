@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px solid #333;
+        }
+
+        thead,
+        tfoot {
+            background-color: #333;
+            color: #fff;
+        }
+        tbody tr:nth-of-type(odd){
+            background-color: pink;
+        }
+        tbody tr:nth-of-type(3n+1){
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <!-- <th colspan="2"></th> -->
+                <th>column 1</th>
+                <th>column 2</th>
+                
+        </thead>
+        <tbody>
+            <tr>
+                <td class="td_one">The table body</td>
+                <td class="td_two">with two columns</td>
+            </tr>
+            <tr>
+                <td class="td_one">The table body</td>
+                <td class="td_two">with two columns</td>
+            </tr>
+            <tr>
+                <td class="td_one">The table body</td>
+                <td class="td_two">with two columns</td>
+            </tr>
+            <tr>
+                <td class="td_one">The table body</td>
+                <td class="td_two">with two columns</td>
+            </tr>
+            <tr>
+                <td class="td_one">The table body</td>
+                <td class="td_two">with two columns</td>
+            </tr>
+            <tr>
+                <td class="td_one">The table body</td>
+                <td class="td_two">with two columns</td>
+            </tr>
+        </tbody>
+
+    </table>
+    <script>
+        let tdALL_1 = document.querySelectorAll('.td_one');
+        let tdALL_2 = document.querySelectorAll('.td_two');
+        console.log(tdALL_1);
+
+        if (gender == '男') {
+            tadALLBoy(3);           
+        }
+        else{
+            tadALLGirl(3);
+        }
+
+        function tadALLBoy(index) {
+            tdALL_1[index].style.backgroundColor = 'blue';
+        }
+        function tadALLGirl(index) {
+            tdALL_2[index].style.backgroundColor = 'red';
+        }
+
+    </script>
+</body>
+
+</html>

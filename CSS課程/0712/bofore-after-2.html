@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* background-color: black; */
+        }
+
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background-color: yellow;
+        }
+
+        .box-main::before {
+            position: absolute;
+            content: "";
+            border-width: 150px;
+            border-style: solid;
+            border-top-color: red;
+            border-left-color: red;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+        .triangle {
+            border-width: 150px;
+            border-style: solid;
+            border-top-color: red;
+            border-left-color: orange;
+            border-right-color: purple;
+            border-bottom-color: green;
+        }
+
+        .triangle-2 {
+            border-width: 150px;
+            border-style: solid;
+            border-top-color: red;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+
+        .triangle-3 {
+            border-width: 150px;
+            border-style: solid;
+            border-top-color: red;
+            border-left-color: red;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box-main"></div>
+    <!-- <div class="box triangle"></div> -->
+    <!-- <div class="box triangle-2"></div> -->
+    <!-- <div class="box triangle-3"></div> -->
+</body>
+
+</html>

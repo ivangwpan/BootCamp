@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .px-16 {
+            font-size: 16px;
+        }
+
+        .px-20 {
+            font-size: 20px;
+        }
+
+        .px-24 {
+            font-size: 24px;
+        }
+
+        .px-32 {
+            font-size: 320px;
+        }
+
+        .em-1dot2 {
+            font-size: 0.8em;
+        }
+
+        .rem-2dot2 {
+            font-size: 5rem;
+        }
+
+        .percent-3dot2 {
+            font-size: 75%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 絕對單位，根據像素變化，預設16px，最小12px -->
+    <div class="px-16">16
+        <div class="px-20">20
+            <div class="px-24">24
+                <div class="px-32">32</div>
+            </div>
+        </div>
+    </div>
+    AAAAAAAAAAAAAAAAAAAAAAA
+    <!-- 相對單位，為父層元素的(x)em倍 -->
+    <div class="px-32">EM
+        <div class="em-1dot2">1.2em
+            <div class="em-1dot2">1.2em
+                <div class="em-1dot2">1.2em
+                    <div class="em-1dot2">1.2em
+                        <div class="em-1dot2">1.2em</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 相對單位，為根元素的(x)rem倍 -->
+    <div class="px-32">REM
+        <div class="rem-2dot2">2.2rem
+            <div class="rem-2dot2">2.2rem
+                <div class="rem-2dot2">2.2rem
+                    <div class="rem-2dot2">2.2rem
+                        <div class="rem-2dot2">2.2rem</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 相對單位，為父元素的(x/100)percent倍 -->
+    <div class="px-32">百分比
+        <div class="percent-3dot2">3.2percent
+            <div class="percent-3dot2">3.2percent
+                <div class="percent-3dot2">3.2percent
+                    <div class="percent-3dot2">3.2percent
+                        <div class="percent-3dot2">3.2percent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

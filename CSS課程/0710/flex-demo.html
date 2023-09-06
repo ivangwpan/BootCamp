@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            background-color: antiquewhite;
+        }
+        #nav{
+            width: 366px;
+            height: 100%;
+            background-color: rgba(255, 0, 0, 0.192);
+            justify-content: center;
+        }
+        #logo{
+            width: 150px;
+            height: 150px;
+            background-color: black;
+            border-radius: 50%;
+        }
+        #container{
+            /* flex-grow: ;剩餘空間分配給所有物件 */
+            flex: 1;
+            height: 100%;
+            background-color: rgba(0, 0, 255, 0.363);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #content{
+            height: 80%;
+            width: 80%;
+            background-color: black;
+        }
+        .img-size{
+            height: 80%;
+            width: 50%;
+            border: 1px solid;
+        }
+        #img-1{
+            background-color: yellow;
+        }
+        #img-2{
+            background-color: red;
+        }
+        #img-3{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <div id="logo"></div>
+        <div id="btn-all">
+            <div id="btn-" class="btn-size"></div>
+            <div id="btn-" class="btn-size"></div>
+            <div id="btn-" class="btn-size"></div>
+        </div>
+    </div>
+    <div id="container">
+        <!-- <div class="content"> -->
+            <div id="img-1" class="img-size"></div>
+            <div id="img-2" class="img-size"></div>
+            <div id="img-3" class="img-size"></div>
+        <!-- </div> -->
+    </div>
+</body>
+</html>

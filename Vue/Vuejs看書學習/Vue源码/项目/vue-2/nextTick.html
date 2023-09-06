@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>nextTick</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app"></div>
+		<button onclick="vm.$destroy()">销毁实例</button>
+		<button onclick="vm.$forceUpdate()">刷新构造器</button>
+		<button onclick="edit()">更新</button>
+		<script>
+			var Header = Vue.extend({
+				template: `<p>{{ message }}</p>`,
+				data: function() {
+					return {
+						message: "Vue课程"
+					}
+				},
+				updated: function() {
+					console.log("updated 更新之后");
+				},
+				destroyed: function() {
+					console.log("destroy 销毁之后");
+				}
+			});
+			var vm = new Header().$mount("#app");
+
+			function edit() {
+				vm.message = "new message"; //更新数据
+				vm.$nextTick(function() { //更新完成后调用
+					console.log("更新完后，我被调用");
+				})
+			}
+		</script>
+	</body>
+</html>
+
+
+

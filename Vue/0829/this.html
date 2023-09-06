@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: black;
+        }
+        .red{
+            border: 20px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box" onclick="test(this)"></div>
+    <script>
+        let box = document.querySelector('.box')
+        box.addEventListener('click',()=>{
+            console.log('123');
+        })
+        function test(x){
+            console.log("i'm red");
+        }
+        function test(x){
+            x.classList.add("red");
+        }
+        // box.onclick = function(){
+        //     console.log(789);
+        // }
+        // box.onclick = function(){
+        //     console.log(99999999);
+        // }
+
+
+        var value = 20;
+        const obj = {
+            value:10,
+            myFunction: function(){
+                console.log(this.value);
+            }
+        }
+        obj.myFunction();
+        const fun2 = obj.myFunction;
+        fun2();
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>多个组件过渡练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	    <transition name="component-fade" mode="out-in">
+	      <component v-bind:is="view"></component>
+	    </transition>
+	</div>
+	<script>
+	new Vue({
+	el:'#app',
+	    data:{
+	        view:'v-a'
+	    },
+	    components:{
+	        'v-a':{
+	            template:`<div>组件aa</div>`
+	        },
+	        'v-b':{
+	            template:`<div>组件bb</div>`
+	        }
+	    }
+	})
+	</script>
+	<style>
+	.component-fade-enter-active, .component-fade-leave-active {
+	    transition: opacity .3s ease;
+	}
+	.component-fade-enter, .component-fade-leave-to {
+	    opacity: 0;
+	}
+	</style>
+	</body>
+</html>
+
+
+
+
+

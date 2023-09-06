@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>extend练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	    <todo :todo-data="groceryList"></todo>
+	</div>
+</body>
+<script type="text/javascript"></script>
+<script>
+/**
+ * 请注意，extend创建的是一个组件构造器，而不是一个具体的组件实例。
+ * 所以他不能直接在new Vue中这样使用： new Vue({components: fuck})
+ * 最终还是要通过Vue.components注册才可以使用的。 
+ */
+
+// 构建一个子组件
+var todoItem = Vue.extend({
+    template: ` <li> {{ text }} </li> `,
+    props: {
+        text: {
+            type: String,
+            default: ''
+        }
+    }
+})
+
+// 构建一个父组件
+var todoWarp = Vue.extend({
+    template: `
+        <ul>
+            <todo-item 
+                v-for="(item, index) in todoData"
+                v-text="item.text"
+            ></todo-item>
+        </ul>
+    `,
+    props: {
+      todoData: {
+          type: Array,
+          default: []
+      }
+    },
+    // 局部注册子组件
+    components: {
+        todoItem: todoItem
+    }
+})
+
+// 注册到全局
+Vue.component('todo', todoWarp)
+
+ new Vue({
+    el: '#app',
+    data: {
+        groceryList: [
+            { id: 0, text: '苹果' },
+            { id: 1, text: '梨子' },
+            { id: 2, text: '食物' }
+        ]
+    }
+})
+</script>
+</html>
+
+
+
+
+

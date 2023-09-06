@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            height: 100vh;
+        }
+
+        .box-big {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .box {
+            width: 50%;
+            height: 50%;
+            background-color: blue;
+            border: 3px solid;
+        }
+
+        .answer {
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="homepage">
+        <button class="start">
+            開始
+        </button>
+        <button class="continue1">
+            繼續
+        </button>
+    </div>
+    <div class="game-page">
+        <div class="timer"></div>
+        <button class="pause">
+            暫時
+        </button>
+        <button class="give-up">
+            放棄
+        </button>
+        <div class="box-big">
+        </div>
+    </div>
+
+    <script>
+        start = document.querySelector('.start');
+        continue1 = document.querySelector('.continue1');
+        pause = document.querySelector('.pause');
+        giveup = document.querySelector('.give-up');
+
+        homepage = document.querySelector('.home-page');
+        gamepage = document.querySelector('.game-page');
+
+        start.addEventListener('click', ()=> {
+            homepage.style.display = 'none';
+            gamepage.style.display = 'flex';
+        })
+
+        giveup.addEventListener('click', ()=> {
+            homepage.style.display = 'flex';
+            gamepage.style.display = 'none';
+        })
+
+        // pause.addEventListener('click',()=>{
+        //     homepage.style.display=
+        // } )
+
+
+
+
+        var level = 2;
+        var size = 100 / level;
+        var count = 0;
+
+
+        var boxBig = document.querySelector('.box-big');
+
+        game();
+
+        function game() {
+            let color = `rgb(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)})`;
+            boxBig.innerHTML = '';
+            for (let i = 0; i < level * level; i++) {
+                boxBig.innerHTML = boxBig.innerHTML + `<div class="box" style="width:${size}%; height: ${size}%; background-color: ${color};"></div>`;
+            }
+
+            var randomAnswer = Math.floor(Math.random() * (level * level) + 1);
+            const answer = document.querySelector(`.box:nth-of-type(${randomAnswer})`);
+
+            answer.classList.add('answer');
+            answer.style.opacity = `${0.5 + level * 0.03}`;
+
+            answer.addEventListener('click', function () {
+                count++;
+                if (count == level) {
+                    level++;
+                    size = 100 / level;
+                }
+                game();
+            });
+        }
+    </script>
+</body>
+
+</html>

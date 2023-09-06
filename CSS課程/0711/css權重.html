@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            /* background-color: rgb(163, 250, 250)!important; */
+            background-color: rgb(163, 250, 250);
+        }
+        body{
+            background-color: pink;
+        }
+        .box-1{
+            width: 100px;
+            height: 300px;
+            background-color: yellow;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+        }
+        p{
+            background-color: red;
+        }
+        #a{
+            background-color: purple;
+        }
+        .b{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <p>Css權重，就是指優先順序的意思，<br>
+    權重愈大，愈優先執行</p>
+    <p>
+        id > class > element > *
+    </p>
+    <div class="box-1">我是黃色</div>
+    <div id="a" class="b">我是紫色
+        <div>我應該是aqua</div>
+    </div>
+    <p>當class重複，如何選擇權重</p>
+    <p style="color: white;background-color: black;">inline style，權限過大，特殊情形用法</p>
+    <p style="font-size: 100px;">權重最大的， !important</p>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>擲骰子遊戲</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        #diceContainer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .dice {
+            font-size: 24px;
+            padding: 10px;
+            border: 1px solid #000;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>擲骰子遊戲</h1>
+    <button id="rollDice">擲骰子</button>
+    <button id="clear">清除紀錄</button>
+    <div id="diceContainer"></div>
+    <div id="log"></div>
+
+    <script>
+        // 紀錄每次擲骰子的結果
+        let diceResults = [];
+        let rollCount = 0;
+
+        // 取得骰子點數
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+
+        // 顯示擲骰子結果
+        function displayDiceResult(result) {
+            const diceContainer = document.getElementById("diceContainer");
+            const diceElement = document.createElement("div");
+            diceElement.classList.add("dice");
+            diceElement.textContent = result;
+            diceContainer.appendChild(diceElement);
+        }
+
+        // 更新紀錄
+        function updateLog() {
+            const log = document.getElementById("log");
+            log.textContent = `累計擲骰子次數：${rollCount}，結果：${diceResults.join(", ")}`;
+        }
+
+        // 清除紀錄
+        function clearLog() {
+            diceResults = [];
+            rollCount = 0;
+            const diceContainer = document.getElementById("diceContainer");
+            const log = document.getElementById("log");
+            diceContainer.innerHTML = "";
+            log.textContent = "";
+        }
+
+        // 開始擲骰子
+        function startRolling() {
+            let previousResult = null;
+            let currentResult = null;
+
+            while (true) {
+                const results = [];
+                for (let i = 0; i < 3; i++) {
+                    const result = rollDice();
+                    results.push(result);
+                    displayDiceResult(result);
+                }
+
+                diceResults.push(results.join(", "));
+                rollCount++;
+                updateLog();
+
+                // 檢查是否三顆骰子數字相同，如果是則停止
+                currentResult = results.join("");
+                if (previousResult === currentResult) {
+                    break;
+                }
+
+                previousResult = currentResult;
+            }
+        }
+
+        // 擲骰子按鈕事件，啟動擲骰子過程
+        const rollButton = document.getElementById("rollDice");
+        rollButton.addEventListener("click", startRolling);
+
+        // 清除紀錄按鈕事件
+        const clearButton = document.getElementById("clear");
+        clearButton.addEventListener("click", clearLog);
+
+    </script>
+    <!-- <script>
+        // 紀錄每次擲骰子的結果
+        let diceResults = [];
+        let rollCount = 0;
+
+        // 取得骰子點數
+        function rollDice() {
+            return Math.floor(Math.random() * 6) + 1;
+        }
+不要用到getElementById、createElement、appendChild、textContent、push、join
+        // 顯示擲骰子結果
+        function displayDiceResult(result) {
+            const diceContainer = document.getElementById("diceContainer");
+            const diceElement = document.createElement("div");
+            diceElement.classList.add("dice");
+            diceElement.textContent = result;
+            diceContainer.appendChild(diceElement);
+        }
+
+        // 更新紀錄
+        function updateLog() {
+            const log = document.getElementById("log");
+            log.textContent = `累計擲骰子次數：${rollCount}，結果：${diceResults.join(", ")}`;
+        }
+
+        // 清除紀錄
+        function clearLog() {
+            diceResults = [];
+            rollCount = 0;
+            const diceContainer = document.getElementById("diceContainer");
+            const log = document.getElementById("log");
+            diceContainer.innerHTML = "";
+            log.textContent = "";
+        }
+
+        // 擲骰子按鈕事件
+        const rollButton = document.getElementById("rollDice");
+        rollButton.addEventListener("click", () => {
+            const results = [];
+            for (let i = 0; i < 3; i++) {
+                const result = rollDice();
+                results.push(result);
+                displayDiceResult(result);
+            }
+            diceResults.push(results.join(", "));
+            rollCount++;
+            updateLog();
+        });
+
+        // 清除紀錄按鈕事件
+        const clearButton = document.getElementById("clear");
+        clearButton.addEventListener("click", clearLog);
+
+    </script> -->
+    <script>
+        let result_num = [];
+
+        play.addEventListener('click', function () {
+            while (!(dice_1 == dice_2 && dice_2 == dice_3 && dice_1 != 0)) {
+                RandomResult();
+                count++;
+                console.log('第', count, '次', '◆', dice_1, '◆', dice_2, '◆', dice_3);
+                result_num.push(`第${count}次: ◆${dice_1}◆${dice_2}◆${dice_3}`);
+            }
+            let dice_num = result_num.join('<br>');
+            result.innerHTML = dice_num;
+        })
+        stop.addEventListener('click', function () {
+            Clear();
+            result.innerText = ' ';
+        })
+    </script>
+</body>
+
+</html>

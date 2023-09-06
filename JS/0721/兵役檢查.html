@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select {
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+        }
+
+        input {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    性別: <input type="radio" name="gender" value="女">女
+    &nbsp&nbsp&nbsp;
+    <input type="radio" name="gender" value="男">男
+    <br>
+    <br>
+    <span> 年齡: </span>
+    <select name="" class="age">
+        <!-- option[value='$@11']{$@11}*20 -->
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+    </select>
+    <button class="check">search</button>
+    <br>
+    <br>
+    result：<div class="result"></div>
+    <script>
+
+        let age = document.querySelector('.age');
+        let checkbtn = document.querySelector('.check');
+        let result = document.querySelector('.result');
+
+        checkbtn.addEventListener('click', function () {
+            let gender = document.querySelector('input[name="gender"]:checked');
+
+            if (!gender) {
+                alert("choose your gender");
+                // 回到程式初始點
+                return
+            }
+            let genderValue = gender.value;
+            // console.log(gender.value);
+            let ageValue = age.value;
+            if (genderValue == '女') {
+                result.innerText = "你不用當兵，滾啦"
+            }
+            else{
+                if (ageValue < 18) {
+                    result.innerText = "你還沒成年，快讀書"
+                }
+                else{
+                    result.innerText = "該當兵囉，菜雞"
+                }
+            }
+            // else if (ageValue < 18) {
+            //     result.innerText = "你還沒成年，快讀書"
+            // }
+            // else if ((genderValue == '男') && (ageValue >= 18)) {
+            //     result.innerText = "該當兵囉，菜雞"
+            // }
+        })
+    </script>
+</body>
+
+</html>

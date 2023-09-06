@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 100px;
+            height: 30px;
+        }
+
+        button {
+            width: 100px;
+            height: 30px;
+            font-size: 20px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="number" id="num-1">
+    +
+    <input type="number" id="num-2">
+    =
+    <span id="result"></span>
+    <button id="add-btn"> + 計算</button>
+    <button id="minus-btn"> - 計算</button>
+    <button id="multiple-btn"> * 計算</button>
+    <button id="divideBtn"> / 計算</button>
+
+    <script>
+        var addBtn = document.querySelector('#add-btn');
+        var minusBtn = document.querySelector('#minus-btn');
+        var multipleBtn = document.querySelector('#multiple-btn');
+        var divideBtn = document.querySelector('#divideBtn');
+        var input_1 = document.querySelector('#num-1');
+        var input_2 = document.querySelector('#num-2');
+        var result = document.querySelector('#result');
+
+        addBtn.addEventListener('click', function () {
+            result.innerHTML = (input_1.value * 1) + input_2.value * 1;
+        })
+        minusBtn.addEventListener('click', function () {
+            result.innerHTML = input_1.value * 1 - input_2.value * 1;
+        })
+        multipleBtn.addEventListener('click', function () {
+            result.innerHTML = (input_1.value * 1) * (input_2.value * 1);
+        })
+        divideBtn.addEventListener('click', function () {
+            result.innerHTML = (input_1.value * 1) / (input_2.value * 1);
+        })
+    </script>
+
+</html>

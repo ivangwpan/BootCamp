@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            background-color: pink;
+            font-family: "Lato", sans-serif;
+            height: 1500px;
+        }
+
+        .banner-1 {
+            height: 100vh;
+            width: 100%;
+            background-image: url(./img/4kbackground.jpg);
+            background-size: center;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #banner-2 {
+            height: 100vh;
+            width: 100%;
+            background-image: url(./img/pexels-irina-iriser-1366957.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        #banner-3 {
+            height: 100vh;
+            width: 100%;
+            background-image: url(./img/pexels-ahmed-adly-1270184.jpg);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .mask- {
+            background-color: white;
+            opacity: 40%;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+
+        .btn {
+            height: 100px;
+            width: 300px;
+            font-size: 32px;
+            background-color: white;
+            position: relative;
+            left: calc(50% - 150px);
+            top: calc(50% - 50px);
+            line-height: 100px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .content- {
+            background-color: transparent;
+            position: relative;
+            padding: 25px;
+            width: calc(500px - 50px);
+            height: 100px;
+            margin: auto;
+        }
+
+        .title- {
+            font-size: 20px;
+            text-align: center;
+            letter-spacing: 10px;
+            font-weight: bolder;
+        }
+
+        .text::first-letter {
+            color: red;
+        }
+
+        .text {
+            text-align: justify;
+            padding: 10px;
+            font-weight: bold;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner-1">
+        <div class="mask-"></div>
+        <div class="btn">SCROLL DOWN</div>
+    </div>
+    <div class="content-">
+        <div class="title-">Parallax Demo</div>
+        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, et! Exercitationem ut laborum
+            officiis esse repellat quod quas id cupiditate temporibus impedit perspiciatis, repudiandae nemo sequi
+            cumque cum distinctio molestias!</div>
+    </div>
+    <div id="banner-2">
+        <div class="mask-"></div>
+        <div class="btn">LESS HEIGHT</div>
+    </div>
+    <div class="content-">
+        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem vel iure asperiores,
+            aspernatur, nemo, eligendi voluptas consequuntur nam harum assumenda minus vitae illum a voluptatibus
+            numquam doloribus repellendus quaerat voluptate.</div>
+    </div>
+    <div id="banner-3">
+        <div class="mask-"></div>
+        <div class="btn">SCROLL UP</div>
+    </div>
+    <div class="content-">
+        <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, voluptates? Ab ipsam quo,
+            excepturi beatae ipsum earum, possimus, officiis in fugiat vel quod quasi aliquid dignissimos eveniet illum
+            quam doloribus!</div>
+    </div>
+    <div class="banner-1">
+        <div class="mask-"></div>
+        <div class="btn">COOL!</div>
+    </div>
+</body>
+
+</html>

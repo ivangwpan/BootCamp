@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-weight: bold;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        table{
+            width: 80%;
+            height: 50%;
+            background-image: linear-gradient(transparent, rgba(173, 216, 230, 0.267), rgba(128, 128, 128, 0.123));
+            /* background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); */
+        }
+        table,
+        td {
+            border: dashed 3px lightskyblue;
+        }
+        thead,
+        tfoot {
+            background-color: transparent;
+            color: black;
+        }
+        tbody tr td{
+            text-align: center;
+        }
+        tbody tr{
+            background-color: transparent;
+            color: black;
+            font-weight: bold;
+        }
+        #BMI-BOX{
+            margin: auto;
+            width: 600px;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 3px dashed lightblue;
+        }
+        title{
+            display: block;
+            font-size: 20px;
+            font-weight: bold;
+            color: blue;
+        }
+        .info,.formula,.datainput{
+            padding: 2.5% 0;
+        }
+        .datainput{
+            display: flex;
+            padding: 0.5% 0;
+            width: 100%;
+            font-size: 12px;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            line-height: 200%;
+        }
+        .datainput div{
+            display: flex;
+        }
+        #height-box{
+            width: 30%;
+            display: flex;
+        }
+        #height{
+            width: 40%;
+            height: 40%;
+            border: dashed 2px lightskyblue;
+        }
+        #weight{
+            width: 40%;
+            height: 40%;
+            border: dashed 2px lightskyblue;
+        }
+        #weight-box{
+            width: 30%;
+            display: flex;
+        }
+        #calculate{
+            margin-right: 20px;
+        }
+        button{
+            background-color: aqua;
+            border: unset;
+            font-weight: bold;
+        }
+        #result{
+            width: 40%;
+            height: 20px;
+            background-color: white;
+            margin: auto;
+            border: dashed 2px lightskyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="BMI-BOX">
+        <title>BMI 計算機</title>
+        <div class="info">身體質量指數(Body Mass Index ，簡稱BMI)是公認用來估計肥胖程度的方法</div>
+        <div class="formula">BMI = 體重(公斤)/身高的平方(公尺)</div>
+        <div class="datainput">
+            <div id="height-box">
+                <div>我的身高：</div>
+                <input type="number" id="height" min="100" max="300">
+                <div>公分</div>
+            </div>
+            <div id="weight-box">
+                <div>我的體重：</div>
+                <input type="number" id="weight" min="20" max="200">
+                <div>公斤</div>
+            </div>
+            <button id="calculate">計算</button>
+            <button id="reset">重新填寫</button>
+        </div>
+        <div id="result"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="3">BMI值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td>男性</td>
+                    <td>女性</td>
+                </tr>
+                <tr>
+                    <td>體重過輕</td>
+                    <td>＜20</td>
+                    <td>＜19</td>
+                </tr>
+                <tr>
+                    <td>正常範圍</td>
+                    <td>20-25</td>
+                    <td>19-25</td>
+                </tr>
+                <tr>
+                    <td>體重過重</td>
+                    <td>25-30</td>
+                    <td>25-30</td>
+                </tr>
+                <tr>
+                    <td>肥胖</td>
+                    <td>30-40</td>
+                    <td>30-40</td>
+                </tr>
+                <tr>
+                    <td>病態肥胖</td>
+                    <td>＞40</td>
+                    <td>＞40</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        var calculatebtn = document.querySelector('#calculate');
+        var resetbtn = document.querySelector('#reset');
+        var my_height = document.querySelector('#height');
+        var my_weight = document.querySelector('#weight');
+        var result = document.querySelector('#result');
+
+        calculatebtn.addEventListener('click', function(){
+            result.innerText = (my_weight.value*1/(((my_height.value*1)/100)*((my_height.value*1)/100)));
+        })
+        resetbtn.addEventListener('click',function(){
+            my_height.value = '';
+            my_weight.value = '';
+            result.innerText = '';
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .ham-menu{
+            height: 100px;
+            width: 100px;
+            background-color: yellow;
+            position: relative;
+            /* 行內層級轉換為區塊層級 */
+            display: block;
+        }
+        #ham-menu-switch{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background-color: yellow;
+        }
+        /* 空格後加第二個class或id表示子層 */
+        .ham-menu .line{
+            width: 80%;
+            height: 10%;
+            background-color: blue;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: 1s;
+        }
+        .ham-menu #line-1{
+            top: 25%;
+        }
+        .ham-menu #line-2{
+            top: 50%;
+        }
+        .ham-menu #line-3{
+            top: 75%;
+        }
+        /* 當被勾選時 */
+        #ham-menu-switch:checked + .ham-menu #line-1 {
+            background-color: red;
+            top: 50%;
+            left: 10%;
+            transform:rotate(-45deg) ;
+        }
+        #ham-menu-switch:checked + .ham-menu #line-2 {
+            background-color: white;
+        }
+        #ham-menu-switch:checked + .ham-menu #line-3 {
+            background-color: black;
+            top: 50%;
+            left: 10%;
+            transform:rotate(45deg) ;
+        }
+    </style>
+</head>
+<body>
+    <!-- 控制紀錄器 -->
+    <!-- hidden=消失 -->
+    <input type="checkbox" id="ham-menu-switch" hidden>
+    
+    <!-- 漢堡menu的本體 -->
+    <label for="ham-menu-switch" class="ham-menu">
+        <div id="line-1" class="line"></div>
+        <div id="line-2" class="line"></div>
+        <div id="line-3" class="line"></div>
+    </label>
+    <div class="line">後代測試</div>
+</body>
+</html>

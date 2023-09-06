@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>全局注册</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	     <my-component></my-component>
+	 </div>
+	
+	<script>
+	   // 全局注册
+	   Vue.component('my-component',{
+	         template: '<p> 这是组件全局注册的内容 </p>'
+	     });
+	    // 创建实例
+	    var vm = new Vue({
+	        el: '#app',
+	        data: {},
+	    });
+	</script>
+	</body>
+</html>

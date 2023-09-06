@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: calc(80% - 20px);
+            height: calc(600px - 20px);
+            background-color: rgb(206, 198, 155);
+            padding: 10px;
+        }
+        .box-H{
+            width: 100%;
+            height: calc(20% - 10px);
+            background-color: gold;
+            margin-bottom: 10px;
+        }
+        .box-B{
+            width: 100%;
+            height: calc(60% - 10px);
+            margin-bottom: 10px;
+        }
+        .box-B-L{
+            width: calc(34% - 10px);
+            height: 100%;
+            background-color: aquamarine;
+            float: left;
+            margin-right: 10px;
+        }
+        .box-B-R{
+            width: 66%;
+            height: 100%;
+            float: right;
+        }
+        .box-B-R-T{
+            width: 100%;
+            height: calc(34% - 10px);
+            background-color: indianred;
+            margin-bottom: 10px;
+        }
+        .box-B-R-M{
+            width: 100%;
+            height: calc(32% - 10px);
+            background-color: deeppink;
+            margin-bottom: 10px;
+        }
+        .box-B-R-B{
+            width: 100%;
+            height: 34%;
+            background-color: greenyellow;
+        }
+        .box-F{
+            width: 100%;
+            height: 20%;
+            background-color: lightseagreen;
+        }
+    </style>
+</head>
+<body>
+    .box>.box-H+(.box-B>(.box-B-L+.box-B-R>.box-B-R-T+.box-B-R-M+.box-B-R-B))+.box-F
+</body>
+</html>

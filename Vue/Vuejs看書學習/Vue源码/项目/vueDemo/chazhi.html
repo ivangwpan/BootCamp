@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<div id="app" v-once>
+			{{msg}}
+			<p>Using mustaches: {{ rawHtml }}</p>
+			<!-- 用此种方法表示内部也产生了一个span 标签 -->
+			<!-- <p>Using v-html directive : <span v-html="rawHtml"></span></p> -->
+			<p v-html="rawHtml"></p><!-- 这样简化，可以的话，p标签下直接有一个span标签 -->
+			<!--语法格式 : v-bind : 属性 = "变量值" -->
+			<div v-bind:class="color">test。。。</div>
+			<!-- 使用JavaScript表达式，数字运算 -->
+			<p> {{ number +1 }} </p>
+			<!-- 三元运算 -->
+			<p> {{ 1 == 3 ? 'YES' : 'NO'}} </p>
+			<!-- 函数运算 reverse是倒序，例如vue，倒序后euv-->
+			<p>{{ message.split('v').reverse().join('') }}</p>
+		</div>
+		<script type="text/javascript">
+			var vm = new Vue({
+				el : "#app",
+				data : {
+					msg : "Hi...Vue",
+					rawHtml : '<span style="color:red">this is should be red</span>',
+					color : 'blue',
+					number : 10,
+					ok : 1,
+					message : "vue"
+				}
+			});
+			vm.msg = "hi";
+		</script>
+		<style type="text/css">
+			.red{color:red;}
+			.blue{color:blue; font-size: 100px;}
+		</style>
+	</body>
+</html>

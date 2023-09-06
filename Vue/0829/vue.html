@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .muted{
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <div v-if="count>10">x</div>
+        <div v-else-if="count>5">多了</div>
+        <div v-else>太多了多了</div>
+        {{ message }}
+        <button type="button" @click="addCount()">加1：{{count}}</button>
+        <hr>
+        <button type="button" @click="tab = 'retail'">零售</button>
+        <button type="button" @click="tab = 'whole'">批發</button>
+        {{ tab }}
+        <hr>
+        <div v-if="tab === 'retail'">零售資料</div>
+        <div v-else>批發資料</div>
+        <hr>
+        <input v-model="name" type="text" placeholder="快填滿" maxlength="5">
+        <div class="muted">{{name}}</div>
+        <hr>
+        doge戰力:{{power}}
+        <button type="button" @click="power+=1000">加戰力</button>
+        <button type="button" @click="power-=1000">減戰力</button>
+        <hr>
+        <img v-bind:src="changeImage()" alt="message">
+        <hr>
+
+    </div>
+    <!-- <div id="app2">{{ message }}</div> -->
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return {
+                    count:0,
+                    message: 'Vue Vue!',
+                    tab: '',
+                    name:'',
+                    power: 0,
+                    img:{
+                        suprise: './img/Collage-Maker-30-Dec-2022-09.11-PM-770x435.webp',
+                        dance: './img/doge-meme.gif',
+                        glasses: './img/Doge-meme-2.webp',
+                        strong: './img/strong.jpg',
+                        weak: './img/weak.jpg',
+                        smile: './img/WMXJCFJ3ERCETA6TJNZ5NQPNKA.webp',
+                        dab: './img/dab.gif'
+                    }
+                }
+            },
+            mounted() {
+                console.log("我正在幫你做網站");
+                console.log("重");
+                console.log("新");
+                console.log("整");
+                console.log("理");
+                console.log(this.message);
+                this.test();
+            },
+            methods: {
+                test(){
+                    console.log('test');
+                },
+                addCount(){
+                    this.count++;
+                    console.log(this.count);
+                },
+                changeImage(){
+                    // power>=3000 ? img.strong : power<0 ? img.weak : img.dance
+                    const { power, img } = this;
+                    if (power >= 5000) {
+                        return img.dab;
+                    }
+                    else if (power >= 3000) {
+                        return img.strong;
+                    }else if (power <0) {
+                        return img.weak;
+                    }else{
+                        return img.dance;
+                    }
+                }
+            },
+        }).mount('#app')
+        // createApp({
+        //     data() {
+        //         return {
+        //             message: 'Vue Vue!'
+        //         }
+        //     },
+        //     mounted() {
+        //         console.log("重");
+        //         console.log("新");
+        //         console.log("整");
+        //         console.log("理");
+        //     },
+        //     methods: {
+        //         test(){
+                    
+        //         }
+        //     },
+        // }).mount('#app2')
+    </script>
+</body>
+
+</html>

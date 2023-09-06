@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let i = 0;
+        // while (i < 10) {
+        //     i++;
+        //     console.log(dice1);
+        //     console.log(i);
+        // }
+        // dice1 = Math.floor(Math.random() * 6 + 1);
+        // dice2 = Math.floor(Math.random() * 6 + 1);
+        // dice3 = Math.floor(Math.random() * 6 + 1);
+        // // 在javascript中，用while寫一個迴圈，當dice1==dice2==dice3
+        // while (!(dice1 == dice2 == dice3)) {
+        //     console.log(dice1, dice2, dice3);
+        // }
+        let dice1 = Math.floor(Math.random() * 6) + 1; // 假設這裡是骰子擲出的隨機數字
+        let dice2 = Math.floor(Math.random() * 6) + 1;
+        let dice3 = Math.floor(Math.random() * 6) + 1;
+        let record = '';
+        let count = 0 ;
+        while (!(dice1 === dice2 && dice2 === dice3)) {
+            count++;
+            // 如果 dice1 不等於 dice2 或者 dice2 不等於 dice3，
+            // 則繼續執行這個迴圈，直到 dice1、dice2 和 dice3 相等為止
+            dice1 = Math.floor(Math.random() * 6) + 1; // 假設這裡是骰子擲出的隨機數字
+            dice2 = Math.floor(Math.random() * 6) + 1;
+            dice3 = Math.floor(Math.random() * 6) + 1;
+            record = `${dice1},${dice2},${dice3}`;
+
+            console.log(record);
+            console.log(`${count}`);
+        }
+    </script>
+</body>
+
+</html>

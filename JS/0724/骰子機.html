@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        #button-box{
+            display: flex;
+        }
+        #start {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            background-color: pink;
+        }
+
+        #start span {
+            margin: auto;
+        }
+
+        #clear {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            background-color: lightblue;
+        }
+
+        #clear span {
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 用javascript做一個擲骰子遊戲
+    按鈕擲骰子，一次擲三顆
+    要有清除紀錄的按鈕
+    要記錄每次的點數
+    要記錄骰的次數
+    顯示每次擲骰子的畫面
+    用while迴圈，找每一次擲骰子都要擲到三顆骰子的數字相同才會停止 -->
+    <div id="button-box">
+        <div id="start"><span>開始</span></div>
+        <div id="clear"><span>清除</span></div>
+    </div>
+    <div id="record-box">
+        <div id="dice-record"></div>
+    </div>
+
+    <script>
+        let start_btn = document.querySelector('#start');
+        let clear_btn = document.querySelector('#clear');
+        let dice_record = document.querySelector('#dice-record');
+        let dice1 = Math.floor(Math.random() * 6) + 1;
+        let dice2 = Math.floor(Math.random() * 6) + 1;
+        let dice3 = Math.floor(Math.random() * 6) + 1;
+        let record = '';
+        let count = 0;
+        start_btn.addEventListener('click', function () {
+            while (!(dice1 === dice2 && dice2 === dice3)) {
+                count++;
+                dice1 = Math.floor(Math.random() * 6) + 1;
+                dice2 = Math.floor(Math.random() * 6) + 1;
+                dice3 = Math.floor(Math.random() * 6) + 1;
+                record = `${dice1},${dice2},${dice3}`;
+                console.log(record);
+                dice_record.innerText = dice_record;
+                console.log(`${count}`);
+            }
+        })
+        clear_btn.addEventListener('click', function(){
+            dice_record.innerText = '';
+        })
+    </script>
+</body>
+
+</html>

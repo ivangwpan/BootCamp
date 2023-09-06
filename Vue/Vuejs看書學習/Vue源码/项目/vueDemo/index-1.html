@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+	<body>
+		<!--视图-->
+		<div id="app">
+			<!--声明变量-->
+			 {{a}} 
+		</div>
+		<!--脚本js-->
+		<script type="text/javascript">
+			<!--应用对象app-->
+		/* var app = new Vue({
+			el: '#app',
+			<!--在视图中进行声明变量message，data中的变量注册，和进行初始化赋值-->
+			data: {
+				message: 'Hello Vue!',
+				name: 'Vue',
+			}
+		}); */
+		
+		var data = { a : 1};
+		var vm = new Vue({
+			el : "#app",
+			data : data
+		});
+		/* 这两个的data.a以及vm.a都可以改变a属性的值*/
+		/* data.a = "hi....new..." */
+		/* vm.a = "test"; */
+		/* vm.a == data.a; */
+		vm.$watch('a',function(newVal,oldVal){
+			console.log(newVal,oldVal)
+		})
+		
+		vm.$data.a = "test...."
+		</script>
+	</body>
+</html>

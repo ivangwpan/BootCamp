@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./microsoft-1.css">
+
+</head>
+
+<body>
+    <nav class="container-normal">
+        
+    </nav>
+    <header>
+        <div>
+            <div dir="rtl" class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/Highlight-M365-Icon-Bounce-Word-Merch_VP3-1083x600.avif" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/Highlight-Surface-Pro-9-M1-Family-02-1_VP3-1083x600.avif" alt="">
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>三張選擇</section>
+        <section>四張圖片</section>
+        <section>四張圖片</section>
+        <section>四張圖片</section>
+    </main>
+    <footer class="container-full">
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+        });
+      </script>
+</body>
+
+</html>

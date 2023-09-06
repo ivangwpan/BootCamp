@@ -1,0 +1,165 @@
+* {
+    box-sizing: border-box;
+}
+
+@media screen and (min-width:1281px) {
+    body {
+        margin: 0px;
+        height: 1080px;
+        background-color: gray;
+        display: flex;
+    }
+
+    #nav {
+        width: 366px;
+        height: 100%;
+        background-color: whitesmoke;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logo {
+        height: 150px;
+        width: 150px;
+        background-image: url(./img/IMG_0877.PNG);
+        background-size: cover;
+        background-position: center;
+        margin-bottom: 50px;
+    }
+
+    #btn-all {
+        background-color: transparent;
+        width: 100px;
+        height: 400px;
+    }
+
+    .btn {
+        background-color: transparent;
+        width: 100%;
+        height: 30px;
+        text-align: center;
+        line-height: 100%;
+        margin-bottom: 25px;
+
+    }
+
+
+    #container {
+        flex: 1;
+        height: 100%;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #content {
+        background-color: blue;
+        width: 957px;
+        height: 570px;
+        /* margin-left: calc(50% - 957px / 2);
+    margin-top: calc(570px / 2); */
+    }
+
+    .content-img {
+        background-color: white;
+        float: left;
+        border: 2px black solid;
+    }
+
+    #img-1 {
+        background-color: white;
+        height: 100%;
+        width: calc(33%);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+    }
+
+    #img-2 {
+        background-color: gray;
+        height: 100%;
+        width: calc(34%);
+        background-size: cover;
+        background-position: calc(62.5%);
+        background-image: url(./img/maxresdefault.jpg);
+    }
+
+    #img-3 {
+        background-color: white;
+        height: 100%;
+        width: calc(33%);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/images.jpg);
+    }
+
+    #btn-1:hover {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(2.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+    }
+
+    #btn-2:hover {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(2.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/maxresdefault.jpg);
+    }
+
+    #btn-3:hover {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(2.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/images.jpg);
+    }
+
+    #btn-1:active {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(4.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+    }
+
+    #btn-2:active {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(4.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/maxresdefault.jpg);
+    }
+
+    #btn-3:active {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(4.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/images.jpg);
+    }
+
+    #img-1:hover {
+        transform: scale(1.25);
+    }
+
+    #img-2:hover {
+        transform: scale(1.25);
+    }
+
+    #img-3:hover {
+        transform: scale(1.25);
+    }
+}

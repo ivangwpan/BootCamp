@@ -1,0 +1,59 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>watch</title>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+	<div id="app">
+	  <button @click="a--">a减去1</button>
+	  <p>{{ message }}</p>
+	</div>
+  <script type="text/javascript">
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        a: 2,
+        message:''
+      },
+      watch: {
+        a: function (val, oldVal) {
+          this.message = 'a的旧值为' + oldVal + '，新值为' + val;
+        }
+      }
+    })
+  </script>
+</body>
+</html> -->
+
+<!-- watch2 -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>watch</title>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+	<div id="app">
+	  <button @click="a--">a减1</button>
+	  <p>{{ message }}</p>
+	  </div>
+  <script type="text/javascript">
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      a: 10,
+      message:''
+    }
+  })
+  var unwatch = vm.$watch('a',function(val, oldVal){
+    if(val === 1){
+      unwatch();
+    }
+    this.message = 'a的旧值为' + oldVal + '，新值为' + val; 
+  })
+  </script>
+</body>
+</html>

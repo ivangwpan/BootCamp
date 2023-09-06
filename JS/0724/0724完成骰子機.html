@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        button {
+            margin: 10px;
+        }
+
+        #diceContainer {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>擲骰子</h1>
+    <button id="rollDice">擲吧</button>
+    <button id="clear">清除紀錄</button>
+    <div id="diceContainer"></div>
+    <div id="diceRecord"></div>
+
+    <script>
+        let StartRoll = document.querySelector('#rollDice');
+        let clearBtn = document.querySelector('#clear')
+        // 開始擲骰
+        // 擲骰子按鈕事件，啟動擲骰子過程
+        // 顯示結果
+        let Result = document.querySelector('#diceContainer');
+        
+        StartRoll.addEventListener('click', function () {
+
+
+            let dice1, dice2, dice3;
+            let count = 0;
+            let allDiceEqual = false;
+            let Detail = [];
+
+            while (!allDiceEqual) {
+                count++;
+                dice1 = Math.floor(Math.random() * 6) + 1;
+                dice2 = Math.floor(Math.random() * 6) + 1;
+                dice3 = Math.floor(Math.random() * 6) + 1;
+                console.log('第', count, '次', dice1, dice2, dice3);
+                Detail.push(`第${count}次: ${dice1} ${dice2} ${dice3}`);
+                allDiceEqual = (dice1 === dice2 && dice2 === dice3);
+            }
+            let DiceRecord = Detail.join("<br>");
+            Result.innerHTML = DiceRecord;
+
+        })
+        // 清除紀錄按鈕事件
+        // 清除紀錄
+        clearBtn.addEventListener('click', function () {
+            Result.innerHTML= '';
+        })
+
+    </script>
+</body>
+
+</html>

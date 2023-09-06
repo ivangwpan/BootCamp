@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="mission_1"></div>
+    <div id="mission-2"></div>
+    <div id="mission-3"></div>
+    <script>
+        // 任務1.在javascript中請用function、for來輸出0~99之間的奇數
+        function printOddNumbers() {
+            for (let i = 1; i <= 99; i += 2) {
+                console.log(i);
+            }
+        }
+        printOddNumbers();
+
+        // 任務2.在javascript中請用function、for來輸出0~99之間的偶數
+        function printEvenNumbers() {
+            for (let i = 0; i <= 99; i += 2) {
+                console.log(i);
+            }
+        }
+        printEvenNumbers();
+
+        
+        // 任務3.在javascript中請用function、for來輸出99乘法表
+        let outSTR = '';
+        function printMultiplicationTable() {
+            for (let i = 1; i <= 9; i++) {
+                for (let j = 1; j <= 9; j++) {
+                    outSTR = outSTR + `${i}*${j}=${i*j}, `;
+                    
+                }
+                console.log(outSTR);
+                outSTR = '';
+            }
+            for (let i = 1; i <= 9; i++) {
+                for (let j = 1; j <= 9; j++) {
+                    outSTR = outSTR + `${j}*${i}=${i*j}, `;
+                    
+                }
+                console.log(outSTR);
+                outSTR = '';
+            }
+        }
+        printMultiplicationTable ();
+
+        function loooooop(){
+            let i = 0;
+            while (i<=99) {
+                i+=2;
+                console.log(i);
+            }
+            let j = 1;
+            while (j<=98){
+                j+=2;
+                console.log(j);
+            }
+            let m = 0;
+            let n = 0;
+            let outanswer = '';
+            while (n<9){
+                m++;
+                n++;
+
+                outanswer = outanswer + `${m}*${n}=${m*n}`;
+                console.log(outanswer);
+            }
+        }
+        loooooop();
+
+    </script>
+</body>
+
+</html>

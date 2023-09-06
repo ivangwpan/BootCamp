@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="radio" id="flash" value="飛機" v-model="Line"/>
+      <label for="flash">飛機</label><br>
+      <input type="radio" id="bus" value="高鐵" v-model="Line"/>
+      <label for="bus">高鐵</label><br>
+      <span>Picked:{{Line}}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const { createApp } = Vue;
+
+      createApp({
+        data() {
+          return {
+            message: "Hello Vue!",
+            Line:'快起來',
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

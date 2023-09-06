@@ -1,0 +1,249 @@
+* {
+    box-sizing: border-box;
+}
+
+@media screen and (min-width:1px) and (max-width:375px) {
+    body {
+        margin: 0px;
+        width: 375px;
+        height: 667px;
+        background-color: gray;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #nav {
+        width: 100%;
+        height: 100px;
+        background-color: whitesmoke;
+        /* float: left; */
+        position: relative;
+    }
+
+    .ham-menu {
+        height: 60px;
+        width: 60px;
+        background-color: rgb(214, 148, 50);
+        position: relative;
+        /* 行內層級轉換為區塊層級 */
+        display: block;
+        float: left;
+        border-radius: 25%;
+        left: 10%;
+        top: 20%;
+    }
+
+    #ham-menu-switch {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        background-color: yellow;
+    }
+
+    /* 空格後加第二個class或id表示子層 */
+    .ham-menu .line {
+        width: 80%;
+        height: 10%;
+        background-color: rgb(97, 15, 15);
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: 1s;
+    }
+
+    .ham-menu #line-1 {
+        top: 25%;
+    }
+
+    .ham-menu #line-2 {
+        top: 50%;
+    }
+
+    .ham-menu #line-3 {
+        top: 75%;
+    }
+
+    /* 當被勾選時 */
+    #ham-menu-switch:checked+.ham-menu #line-1 {
+        background-color: red;
+        top: 50%;
+        left: 10%;
+        transform: rotate(-45deg);
+    }
+
+    #ham-menu-switch:checked+.ham-menu #line-2 {
+        background-color: white;
+    }
+
+    #ham-menu-switch:checked+.ham-menu #line-3 {
+        background-color: black;
+        top: 50%;
+        left: 10%;
+        transform: rotate(45deg);
+    }
+
+    #ham-menu-switch:checked~#btn-all {
+        display: block;
+        transition: 1s;
+    }
+
+    #logo {
+        background-color: transparent;
+        height: 100px;
+        width: 100px;
+        margin: auto;
+        background-image: url(./img/IMG_0877.PNG);
+        background-size: cover;
+        background-position: center;
+    }
+
+    #btn-all {
+        background-color: rgba(228, 67, 67, 0.39);
+        width: 200px;
+        height: 150px;
+        position: absolute;
+        border-radius: 10%;
+        display: none;
+    }
+
+    .btn {
+        background-color: rgb(218, 171, 101);
+        width: 60%;
+        height: 22%;
+        text-align: center;
+        line-height: 40px;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    #btn-1:hover {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(2.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+    }
+
+    #btn-2:hover {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(2.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/maxresdefault.jpg);
+    }
+
+    #btn-3:hover {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(2.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/images.jpg);
+    }
+
+    #btn-1:active {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(4.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+    }
+
+    #btn-2:active {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(4.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/maxresdefault.jpg);
+    }
+
+    #btn-3:active {
+        margin-left: 50px;
+        color: transparent;
+        transform: scale(4.5);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/images.jpg);
+    }
+
+    #container {
+        width: calc(100%);
+        height: calc(100% - 100px);
+        background-color: black;
+        /* float: left;
+    clear: left; */
+    }
+
+    #content {
+        background-color: blue;
+        width: 100%;
+        height: calc(100%);
+        border: 5px black solid;
+    }
+
+    .content-img {
+        background-color: white;
+        /* float: left; */
+        border: 5px black solid;
+    }
+
+    #img-1 {
+        background-color: white;
+        /* padding: 5px; */
+        height: 33%;
+        width: calc(100%);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+    }
+
+    #img-2 {
+        background-color: gray;
+        /* padding: 5px; */
+        height: 34%;
+        width: calc(100%);
+        background-size: cover;
+        background-position: calc(62.5%);
+        background-image: url(./img/maxresdefault.jpg);
+    }
+
+    #img-3 {
+        background-color: white;
+        /* padding: 5px; */
+        height: 33%;
+        width: calc(100%);
+        background-size: cover;
+        background-position: center;
+        background-image: url(./img/images.jpg);
+    }
+
+    #img-1:hover {
+        transform: scale(1.25);
+    }
+
+    #img-2:hover {
+        transform: scale(1.25);
+    }
+
+    #img-3:hover {
+        transform: scale(1.25);
+    }
+
+    #img-1:active {
+        transform: scale(1.5);
+    }
+
+    #img-2:active {
+        transform: scale(1.5);
+    }
+
+    #img-3:active {
+        transform: scale(1.5);
+    }
+}

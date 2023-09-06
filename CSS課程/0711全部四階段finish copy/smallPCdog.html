@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0px;
+            /* width: 1280px; */
+            height: 1024px;
+            background-color: gray;
+            display: flex;
+        }
+
+        #nav {
+            width: 366px;
+            height: 100%;
+            background-color: whitesmoke;
+            /* float: left; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #logo {
+            background-color: transparent;
+            width: 100px;
+            height: 100px;
+            /* padding: 50px;
+            float: left;
+            margin-left: calc(115px);
+            margin-top: 50px;
+            margin-bottom: 50px; */
+            background-image: url(./img/IMG_0877.PNG);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #btn-all {
+            background-color: transparent;
+            width: 100px;
+            height: 250px;
+            /* clear: left; */
+            /* margin-left: calc(50% - 50px); */
+        }
+
+        .btn {
+            background-color: transparent;
+            width: 100%;
+            height: 30px;
+            text-align: left;
+            line-height: 100%;
+            margin-bottom: 20px;
+
+        }
+
+        #btn-1:hover {
+            margin-left: 50px;
+            color: transparent;
+            transform: scale(2.5);
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+        }
+
+        #btn-2:hover {
+            margin-left: 50px;
+            color: transparent;
+            transform: scale(2.5);
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/maxresdefault.jpg);
+        }
+
+        #btn-3:hover {
+            margin-left: 50px;
+            color: transparent;
+            transform: scale(2.5);
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/images.jpg);
+        }
+
+        #btn-1:active {
+            margin-left: 50px;
+            color: transparent;
+            transform: scale(4.5);
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+        }
+
+        #btn-2:active {
+            margin-left: 50px;
+            color: transparent;
+            transform: scale(4.5);
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/maxresdefault.jpg);
+        }
+
+        #btn-3:active {
+            margin-left: 50px;
+            color: transparent;
+            transform: scale(4.5);
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/images.jpg);
+        }
+
+        #container {
+            flex: 1;
+            /* width: calc(1280px - 366px); */
+            height: 100%;
+            background-color: black;
+            /* float: right; */
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #content {
+            background-color: blue;
+            width: 800px;
+            height: 570px;
+            /* margin-left: calc(50% - 400px);
+            margin-top: calc(50% - 570px / 2 / 2);  */
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+
+        .content-img {
+            background-color: white;
+            /* float: left; */
+            border: 2px black solid;
+        }
+
+        #img-1 {
+            background-color: white;
+            /* padding: 5px; */
+            /* flex: 1; */
+            width: 100%;
+            height: 50%;
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+        }
+
+        #img-2 {
+            background-color: gray;
+            /* padding: 5px; */
+            height: 50%;
+            flex: 1;
+            background-size: cover;
+            background-position: calc(62.5%);
+            background-image: url(./img/maxresdefault.jpg);
+        }
+
+        #img-3 {
+            background-color: white;
+            /* padding: 5px; */
+            height: 50%;
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            background-image: url(./img/images.jpg);
+        }
+
+        #img-1:hover {
+            transform: scale(1.25);
+        }
+
+        #img-2:hover {
+            transform: scale(1.25);
+        }
+
+        #img-3:hover {
+            transform: scale(1.25);
+        }
+
+        #img-1:active {
+            transform: scale(1.5);
+        }
+
+        #img-2:active {
+            transform: scale(1.5);
+        }
+
+        #img-3:active {
+            transform: scale(1.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div id="logo"></div>
+        <div id="btn-all">
+            <div id="btn-1" class="btn">邊境牧羊犬</div>
+            <div id="btn-2" class="btn">柯基</div>
+            <div id="btn-3" class="btn">薩摩耶</div>
+        </div>
+    </div>
+    <div id="container">
+        <div id="content">
+            <div id="img-1" class="content-img"><a
+                    href="https://www.google.com.tw/search?hl=zh_TW&q=邊境牧羊犬&tbm=isch&sa=X&ved=2ahUKEwjNjrOpivn_AhV6EVkFHXqUCjMQ0pQJegQICRAB"
+                    target="_blank">
+
+                </a></div>
+
+            <div id="img-2" class="content-img"><a
+                href="https://www.google.com.tw/search?q=柯基&tbm=isch&ved=2ahUKEwjzx9yrivn_AhUmD1kFHQJRD7wQ2-cCegQIABAA"
+                target="_blank">
+
+            </a></div>
+            <div id="img-3" class="content-img"><a
+                href="https://www.google.com.tw/search?q=薩摩耶&tbm=isch&ved=2ahUKEwjaw6uwivn_AhVlEGIAHQVEDWQQ2-cCegQIABAA"
+                target="_blank">
+
+            </a></div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>

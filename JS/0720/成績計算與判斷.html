@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     Chinese <input type="number" id="chinese" min="0" max="100">
+     Math <input type="number" id="math" min="0" max="100">
+     English <input type="number" id="english" min="0" max="100">
+     <br>
+     <br>
+     <button id="btn">得知結果</button>
+     <br>
+     <br>
+     Average <div id="average"></div>
+     <br>
+     Result <div id="result"></div>
+     <button id="reset">清除</button>
+
+     <script>
+        var chinese = document.querySelector('#chinese');
+        var math = document.querySelector('#math');
+        var english = document.querySelector('#english');
+        var average = document.querySelector('#average');
+        var result= document.querySelector('#result');
+        var btn = document.querySelector('#btn');
+        var reset = document.querySelector('#reset')
+
+        btn.addEventListener('click',function(){
+            var avg = (chinese.value*1 + math.value*1 + english.value*1)/3;
+            var result_class='';
+
+            if (avg>=90) {
+                result_class = 'A!'
+            }
+            else if(avg>=80){
+                result_class = 'B!'
+            }
+            else if(avg>=70){
+                result_class = 'C!'
+            }
+            else if(avg>=60){
+                result_class = 'D!'
+            }
+            else{
+                result_class = 'You are fired!'
+            }
+            average.innerText = avg.toFixed(2);
+            result.innerText=result_class;
+        });
+        reset.addEventListener('click',function(){
+            chinese.value = 0;
+            math.value = 0;
+            english.value = 0;
+            average.innerText = '';
+            result.innerText = '';
+        });
+     </script>
+</body>
+</html>

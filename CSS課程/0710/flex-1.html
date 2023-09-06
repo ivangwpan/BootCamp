@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            height: 100vh;
+            /* 使用彈性容器 */
+            display: flex;
+            /* 預設水平 */
+            /* flex-direction: row; */
+
+            /* 排列方式 */
+            /* aroud=(x+物件+x)均分寬度
+            evenly=(物件與物件與邊界寬度相同) */
+            justify-content: space-evenly;
+            /* justify-content: space-around; */
+            /* 由起始項開始 */
+            /* justify-content: flex-start; */
+            /* 由最末項開始 */
+            /* justify-content: flex-end; */
+            
+            /* 顛倒排列 */
+            flex-direction: row-reverse;
+            /* 容器垂直置中 */
+            align-items: center;
+            /* align-content: center; */
+            /* align-items: flex-end; */
+
+            /* 寬度不足時移至下排 */
+            flex-wrap: wrap;
+        }
+        .box-{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(221, 125, 14);
+            border: 5px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-">A</div>
+    <div class="box-">B</div>
+    <div class="box-">C</div>
+</body>
+</html>

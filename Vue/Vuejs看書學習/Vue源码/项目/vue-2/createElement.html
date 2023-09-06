@@ -1,0 +1,87 @@
+<!-- <!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>传统createElement练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	  <ele></ele>
+	</div>
+	<script>
+	    Vue.component('ele',{
+	      template:`
+	        <div id="element" v-bind:class="{show:show}" v-on:click="handleClick"> 我学会了Vue</div>
+	       `,
+	    data(){
+	      return {
+	       show:true
+	      }
+	    },
+	    methods:{
+	      handleClick:function(){
+	        console.log('您点击了')
+	       }
+	     }
+	    });
+	    var vm = new Vue({
+	       el:'#app'
+	    });
+	</script>
+	</body>
+</html>
+ -->
+
+<!-- 修改后的 -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用Render改写后的代码</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	<div id="app">
+	  <ele></ele>
+	</div>
+	<script>
+	    Vue.component('ele',{
+	      render:function(createElement){
+	        return createElement(
+	          'div',/* 第一个参数是必选的，可以是HTML标签、组件、函数*/
+	          {
+	              /*第二个是可选的数据对象，在template使用*/
+	              /*1、动态绑定class，等价于：class*/
+	              class:{
+	                'show':this.show
+	              },
+	              /* 2、普通HTML特性 */
+	              attrs:{
+	                id:'element'
+	              },
+	              /* 3、给div绑定click点击事件 */
+	              on:{
+	                click:this.handleClick
+	              }
+	          },
+	          'Hello World'/*第三个是子节点，也是可选参数*/
+	        )
+	      },
+	      data(){
+	        return {
+	          show:true
+	        }
+	      },
+	      methods:{
+	        handleClick:function(){
+	          console.log('您点击了一下')
+	        }
+	      }
+	    });
+	    var vm = new Vue({
+	      el:'#vm'
+	    });
+	</script>
+	</body>
+</html>

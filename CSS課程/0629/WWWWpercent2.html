@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box-big{
+            width: calc(70% - 5px*2);
+            height: calc(300px - 5px*2);
+            background-color: black;
+            padding: 10px;
+        }
+        .box-small{
+            width: 33%;
+            height: 100%;
+            float: left;
+        }
+        .box-Msmall{
+            height: 100%;
+            float: left;
+        }
+        .box-y{
+            background-color: yellow;
+            width: calc(33% - 5px);
+            margin-right: 10px;
+        }
+        .box-r{
+            background-color: red;
+            width: calc(33% - 5px);
+
+        }
+        .box-b{
+            background-color: blue;
+            width: calc(34% - 10px);
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box-big">
+        <div class="box-small box-y"></div>
+        <div class="box-Msmall box-b"></div>
+        <div class="box-small box-r"></div>
+    </div>
+</body>
+</html>

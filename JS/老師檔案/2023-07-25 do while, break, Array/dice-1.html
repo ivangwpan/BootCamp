@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-size: 24px;
+        }
+        button:not(.start) {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        button.start {
+            width: 80px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button>dice1</button>
+    <button>dice2</button>
+    <button>dice3</button>
+    <br>
+    <br>
+    <button class="start">開始</button>
+    <div class="result">
+        狀態:<div class="status"></div>
+    </div>
+    <script>
+        // while loop
+        // while (判斷動作的條件) {
+        //  要做的事情
+        // }
+        // var aaa = 10;
+        // let bbb = 10;
+        // var aaa = 5;
+        // let bbb = 5;
+        // console.log(aaa);
+        // var dice1 = 0;
+        let dice1 = 10;
+        let dice2 = 1;
+        let dice3 = 2;
+        let count = 0;
+        let start = document.querySelector('.start');
+        let status = document.querySelector('.status');
+        let diceBox1 = document.querySelector('button:nth-of-type(1)')
+        let diceBox2 = document.querySelector('button:nth-of-type(2)')
+        let diceBox3 = document.querySelector('button:nth-of-type(3)')
+        status.innerHTML = ''
+        start.addEventListener('click', function () {
+            while (!(dice1 == dice2 && dice2 == dice3)) {
+                count++;
+                dice1 = Math.floor(Math.random() * 6 + 1);
+                dice2 = Math.floor(Math.random() * 6 + 1);
+                dice3 = Math.floor(Math.random() * 6 + 1);
+                diceBox1.innerText = dice1;  
+                diceBox2.innerText = dice2;  
+                diceBox3.innerText = dice3;  
+                // 迭代
+                // status.innerHTML = status.innerHTML + `第 ${count} 次: ${dice1}, ${dice2}, ${dice3}, <br>`;
+                status.innerHTML += `第 ${count} 次: ${dice1}, ${dice2}, ${dice3}, <br>`;
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 定義物件
+        let a = {}; //空物件
+        // 物件名稱,  物件屬性,  屬性值
+        let oneDeer = { 'name': '一鹿狂飆', age: 25, gender: 'male', power: 10000, x: 100, y: 100 }
+        let fiveDeer = { name: '舞鹿亂滑', age: 35, gender: 'male', power: 8000, x: 300, y: 100 }
+
+        console.log(oneDeer);
+        console.log(oneDeer.name);
+        console.log(oneDeer.age);
+        console.log(oneDeer.gender);
+        console.log(oneDeer.power);
+
+        console.log(fiveDeer);
+        console.log(fiveDeer.name);
+        console.log(fiveDeer.age);
+        console.log(fiveDeer.gender);
+        console.log(fiveDeer.power);
+
+        if (oneDeer.power > fiveDeer.power) {
+            console.log('舞鹿輸了！');
+        } else if (oneDeer.power < fiveDeer.power) {
+            console.log('舞露贏了');
+        } else {
+            console.log('平手');
+        }
+
+        // 可以隨時增加
+        oneDeer.sword = 1;
+        console.log(oneDeer['sword']);
+        console.log(oneDeer['age']);
+        // 刪除物件屬性的方法
+        delete(oneDeer.sword);
+    </script>
+</body>
+</html>

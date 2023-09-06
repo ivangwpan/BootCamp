@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>v-bind练习</title>
+<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+</head>
+<body>
+  <div id="vm">
+    <p v-bind:class="jumooc">Hello, {{name}}</p>
+  </div>
+<script type="text/javascript">
+  var vm = new Vue({
+     el: '#vm',
+     data: {
+     name: 'Vue之旅',
+     jumooc: 'red'
+     }
+  });
+</script>
+ 
+<style>
+.red {
+background: red;
+}
+ 
+ 
+.blue {
+background: blue;
+}
+</style>
+</body>
+</html>
+
+
+
+

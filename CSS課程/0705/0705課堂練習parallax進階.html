@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            /* height: 3000px; */
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #nav {
+            position: fixed;
+            background-color: rgb(230, 231, 147);
+            width: calc(80% - 20px);
+            /* height: 100px; */
+            left: 10%;
+            z-index: 9;
+            padding: 10px;
+        }
+
+        #logo {
+            background-color: black;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-image: url(./img/IMG_0877.PNG);
+            background-size: cover;
+            /* padding: 10px; */
+            float: left;
+        }
+
+        #container {
+            width: 80%;
+            height: 300px;
+            margin: auto;
+            background-color: black;
+            padding-top: 100px;
+        }
+
+        .banner {
+            background-color: pink;
+            width: 100%;
+            height: calc(50vh - 50px);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: calc(50vh - 50px);
+            position: relative;
+        }
+        #logo:hover{
+            transform: rotate(45deg) scale(2);
+        }
+        #logo:active{
+            transform: rotate(90deg) scale(2.4);
+        }
+        #banner-1 {
+            background-image: url(./img/220805-border-collie-play-mn-1100-82d2f1.jpg);
+        }
+
+        #banner-1-anchor,
+        #banner-2-anchor,
+        #banner-3-anchor,
+        #banner-4-anchor {
+            position: absolute;
+            top: -100px;
+        }
+
+        #banner-2 {
+            background-image: url(./img/images.jpg);
+        }
+
+        #banner-3 {
+            background-image: url(./img/cq5dam.web.1280.1280.jpeg);
+        }
+
+        #banner-4 {
+            background-image: url(./img/maxresdefault.jpg);
+        }
+
+        .mask {
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 30%;
+        }
+
+        .btn {
+            width: 150px;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+            line-height: 150%;
+            border-radius: 5px;
+            background-color: white;
+            color: black;
+            position: relative;
+            left: calc(50%);
+            top: calc(-50%);
+            /* 轉置矩陣=x軸(移動物體%方向),y軸(移動物體%方向)
+            y軸方向轉置 */
+            transform: translate(-50%, -50%);
+        }
+
+        .nav-btn {
+            background-color: pink;
+            width: 100px;
+            height: 60px;
+            float: left;
+            /* 字體大小預設16px，最小為12px */
+            font-size: 24px;
+            text-align: center;
+            line-height: 60px;
+            font-weight: bolder;
+            border-radius: 10px;
+            margin-left: 5px;
+
+        }
+
+        .btn-position {
+            float: right;
+            padding: 10px 0;
+            /* width: 330px; */
+            /* height: 60px; */
+            /* background-color: yellow; */
+            /* margin-top: 10px; */
+        }
+
+        .top {
+            /* width: 50px;
+            height: 50px; */
+            border-radius: 50%;
+            background-color: yellow;
+            text-align: center;
+            line-height: 50px;
+            float: right;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* a:link=尚未拜訪 */
+        a:link {
+            background-color: white;
+            color: yellow;
+        }
+
+
+
+        /* a:visited=已按過 */
+        a:visited {
+            background-color: rgb(197, 124, 124);
+            color: rgb(141, 108, 81);
+        }
+
+        /* a:hover=經過按鈕上方 */
+        a:hover {
+            background-color: blue;
+            color: white;
+        }
+
+        a:active {
+            background-color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="nav">
+        <div id="logo"></div>
+        <div class="btn-position">
+            <a href="#banner-1-anchor" class="nav-btn">第一區</a>
+            <a href="#banner-2-anchor" class="nav-btn">第二區</a>
+            <a href="#banner-3-anchor" class="nav-btn">第三區</a>
+            <a href="#banner-4-anchor" class="nav-btn">第四區</a>
+            <!-- 超連結
+            a:anchor 錨點
+            href: 錨點目的>連結網址 -->
+            <!-- <a href="https://www.youtube.com"></a> -->
+        </div>
+    </div>
+    <div id="container">
+        <div id="banner-1" class="banner">
+            <div id="banner-1-anchor"></div>
+            <div class="mask"></div>
+            <div class="btn">第一區</div>
+
+        </div>
+        <div id="banner-2" class="banner">
+            <div id="banner-2-anchor"></div>
+            <div class="mask"></div>
+            <div class="btn">第二區</div>
+        </div>
+        <div id="banner-3" class="banner">
+            <div id="banner-3-anchor"></div>
+            <div class="mask"></div>
+            <div class="btn">第三區</div>
+        </div>
+        <div id="banner-4" class="banner">
+            <div id="banner-4-anchor"></div>
+            <div class="mask"></div>
+            <div class="btn">第四區</div>
+        </div>
+    </div>
+    <!-- herf=#表示連到本身頁面 -->
+    <!-- herf=留空也是連到本身頁面 -->
+    <div><a href="#" class="top">GoTop</a></div>
+
+
+
+</body>
+
+</html>

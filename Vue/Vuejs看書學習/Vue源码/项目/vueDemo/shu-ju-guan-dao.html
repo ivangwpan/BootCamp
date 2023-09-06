@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数据管道练习</title>
+		<script src="vue.js" type="text/javascript" charset="UTF-8"></script>
+	</head>
+<body>
+	 <div class="app">
+	    <div>{{msg | _.upper | _.lower | _.capitalize}}</div>
+	    <div>{{na | _.min }}</div>
+	    <div>{{na | _.nth(1) }}</div>
+	    <div>{{ n | _.timer}}</div>
+	  </div>
+	<script type="text/javascript">
+  	Vue.filter('_.upper', v => _.toUpper(v))
+  	Vue.filter('_.lower', v => _.toLower(v))
+  	
+  	// 获取集合的最小值
+  	Vue.filter('_.min', v => _.min(v))
+  	
+  	// 获取集合的指定元素
+  	Vue.filter('_.nth', (v, n) => _.nth(v, n))
+  	
+  	// 首字母大写
+  	Vue.filter('_.capitalize', v => _.capitalize(v))
+  	
+  	Vue.filter('_.timer', v => {
+  	  // 返回 00::00:00 格式时间
+  	  let nowTime = '';
+  	  let hour = 0,
+  	    minute = 0,
+  	    second = 0;
+  	
+  	  const h = Math.floor(v / 60 / 60);
+  	  hour = h >= 60 || h >= 10
+  	    ? h
+  	    : '0' + h;
+  	
+  	  const m = Math.floor(v / 60 % 60);
+  	  minute = m >= 60 || m >= 10
+  	    ? m
+  	    : '0' + m;
+  	  const s = Math.floor(v % 60);
+  	  second = s >= 10
+  	    ?s
+  	    : '0' + s;
+  	
+  	  nowTime = v >= (60 * 60)
+  	    ? hour + ":" + minute + ":" + second
+  	    : hour + ':' + minute + ":" + second;
+  	  return nowTime;
+  	})
+  	
+  	new Vue({
+  	  data() {
+  	    return {
+  	      msg: 'click',
+  	      na: [1, 2, 3],
+  	      n: 1
+  	    }
+  	  },
+  	  mounted(){
+  	    setInterval(()=>{
+  	      this.n += 30;
+  	    }, 100)
+  	  }
+  	}).$mount('.app')
+	</script>	 
+	</body>
+</html>
+
+
+
+
+
+
