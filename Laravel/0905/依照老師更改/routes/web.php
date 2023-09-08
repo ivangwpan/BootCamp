@@ -33,7 +33,7 @@ Route::prefix('/product')->group(function () {
 });
 
 Route::resource('/type', TypeController::class);
-Route::resource('/discussion',DiscussionController::class);
+Route::resource('/messageBoard',DiscussionController::class);
 
 
 
